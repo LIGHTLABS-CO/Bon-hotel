@@ -77,7 +77,7 @@
     }
 
     .star-rating {
-      margin-top: 20px;
+      margin: 30px 0 10px;
       text-align: center;
       font-size: 18px;
     }
@@ -98,33 +98,11 @@
       font-size: 14px;
     }
 
-    .admin-btn {
-      position: fixed;
-      top: 15px;
-      right: 15px;
-      background: #003366;
-      color: white;
-      border: none;
-      padding: 8px 12px;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-
-    #admin-login {
-      display: none;
-      text-align: center;
-      margin-top: 20px;
-    }
-
-    #comments {
-      display: none;
-      margin-top: 20px;
-    }
-
     textarea {
       width: 100%;
       height: 80px;
-      margin-bottom: 10px;
+      margin: 10px 0;
+      resize: vertical;
     }
 
     .comment-box {
@@ -134,6 +112,20 @@
       border-left: 4px solid #003366;
     }
 
+    .rating-stars {
+      text-align: center;
+      margin: 10px 0;
+    }
+
+    .rating-stars span {
+      cursor: pointer;
+      font-size: 26px;
+      color: #999;
+    }
+
+    .rating-stars span.selected {
+      color: gold;
+    }
   </style>
 </head>
 <body>
@@ -147,12 +139,10 @@
     <img src="img4.jpeg" class="slide" />
   </div>
 
-  <!-- Admin Login Button -->
-  <button class="admin-btn" onclick="showLogin()">Admin</button>
-
-  <!-- Room Rates Table -->
+  <!-- Main Content -->
   <div class="container">
     <h1>BON Hotel Hyatti Warri<br>Room Rates</h1>
+
     <table>
       <thead>
         <tr>
@@ -173,17 +163,37 @@
     </table>
 
     <div class="note">
-      Single Rooms come with complimentary breakfast for 1 person.<br>
-      All Suites include breakfast for 2 persons, and complimentary access to pool and gym.
+      Single Rooms include complimentary breakfast for 1 guest.<br>
+      Suites include complimentary breakfast for 2 guests.<br>
+      <strong>All room types include complimentary access to the pool and gym facilities.</strong>
     </div>
 
     <div class="star-rating">
-      Overall Rating: <span class="stars">★★★★☆</span> (4.0 / 5)
+      Overall Rating: <span class="stars" id="average-stars">★★★★☆</span> <span id="rating-value">(4.0 / 5)</span>
+    </div>
+
+    <div class="rating-stars">
+      <p><strong>What do you think about the website?</strong></p>
+      <span onclick="rate(1)">★</span>
+      <span onclick="rate(2)">★</span>
+      <span onclick="rate(3)">★</span>
+      <span onclick="rate(4)">★</span>
+      <span onclick="rate(5)">★</span>
+    </div>
+
+    <!-- Public Comments -->
+    <div>
+      <h3>Visitor Comments</h3>
+      <textarea id="new-comment" placeholder="Leave a comment..."></textarea>
+      <button onclick="addComment()">Post Comment</button>
+      <div id="comment-list"></div>
     </div>
 
     <div class="contact">
-      Address: BON Hotel Hyatti Warri, Airport Road, Warri, Delta State, Nigeria<br>
-      Phone: +234 803 123 4567, +234 802 987 6543
+      Address: 2 Omamor Street, Ekpan Warri, Delta, Nigeria<br>
+      Phone: +234 (0) 703 900 6667<br>
+      WhatsApp: +234 915 996 7494<br>
+      Email: reservations@bonhotelhyatti.com
     </div>
 
     <div class="note">To make reservations, kindly contact the hotel directly.</div>
@@ -193,20 +203,6 @@
     </div>
 
     <div class="powered">Powered by Lighthouse</div>
-
-    <!-- Admin Login -->
-    <div id="admin-login">
-      <input type="password" id="admin-password" placeholder="Enter Admin Password" />
-      <button onclick="verifyPassword()">Submit</button>
-    </div>
-
-    <!-- Hidden Comments Section -->
-    <div id="comments">
-      <h3>Guest Comments</h3>
-      <textarea id="new-comment" placeholder="Leave a comment..."></textarea>
-      <button onclick="addComment()">Post Comment</button>
-      <div id="comment-list"></div>
-    </div>
   </div>
 
   <!-- Visitor Counter -->
@@ -229,22 +225,6 @@
     localStorage.setItem("visitCount", visits);
     document.getElementById("count").innerText = visits;
 
-    // Admin Login
-    function showLogin() {
-      document.getElementById("admin-login").style.display = "block";
-    }
-
-    function verifyPassword() {
-      const pass = document.getElementById("admin-password").value.toLowerCase();
-      if (pass === "naruto") {
-        document.getElementById("comments").style.display = "block";
-        document.getElementById("admin-login").style.display = "none";
-        loadComments();
-      } else {
-        alert("Incorrect password");
-      }
-    }
-
     // Comments
     function addComment() {
       const text = document.getElementById("new-comment").value.trim();
@@ -261,6 +241,28 @@
       document.getElementById("comment-list").innerHTML =
         stored.map(c => `<div class="comment-box">${c}</div>`).join('');
     }
+
+    loadComments();
+
+    // Star Rating
+    function rate(val) {
+      let stored = JSON.parse(localStorage.getItem("ratings") || "[]");
+      stored.push(val);
+      localStorage.setItem("ratings", JSON.stringify(stored));
+      updateAverage();
+    }
+
+    function updateAverage() {
+      let ratings = JSON.parse(localStorage.getItem("ratings") || "[]");
+      let avg = ratings.length ? (ratings.reduce((a, b) => a + b) / ratings.length) : 0;
+      let stars = "☆☆☆☆☆".split('');
+      for (let i = 0; i < Math.round(avg); i++) stars[i] = '★';
+      document.getElementById("average-stars").innerText = stars.join('');
+      document.getElementById("rating-value").innerText = `(${avg.toFixed(1)} / 5)`;
+    }
+
+    updateAverage();
   </script>
 </body>
-      </html>
+</html>
+```
