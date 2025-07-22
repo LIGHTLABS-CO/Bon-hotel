@@ -5,49 +5,59 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>BON Hotel Hyatti Warri - Room Rates</title>
   <style>
-    html, body {
+    * { box-sizing: border-box; }
+    body, html {
       margin: 0;
       padding: 0;
-      height: 100%;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      transition: background-image 1s ease-in-out;
-      color: white;
+      height: 100%;
+      overflow-x: hidden;
+    }
+
+    .slideshow {
+      position: fixed;
+      z-index: -1;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 2s ease-in-out;
+    }
+    .slide.active {
+      opacity: 1;
     }
 
     .container {
-      max-width: 1000px;
-      margin: 40px auto;
-      background: rgba(255, 255, 255, 0.8); /* only the container is translucent */
-      padding: 20px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.4);
-      border-radius: 10px;
-      backdrop-filter: blur(4px);
-      overflow-x: auto;
-      color: #000;
+      max-width: 900px;
+      margin: 50px auto;
+      background: rgba(255, 255, 255, 0.85);
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
     }
 
     h1 {
       text-align: center;
-      color: #111;
-      font-size: 1.8em;
+      color: #003366;
       margin-bottom: 20px;
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
-      min-width: 600px;
-      background: transparent;
     }
 
     th, td {
-      border: 1px solid #999;
+      border: 1px solid #ddd;
       padding: 12px;
       text-align: center;
-      font-size: 14px;
     }
 
     th {
@@ -56,40 +66,93 @@
     }
 
     tr:nth-child(even) {
-      background-color: rgba(240, 240, 240, 0.9);
+      background-color: #f2f2f2;
     }
 
-    tr:nth-child(odd) {
-      background-color: rgba(255, 255, 255, 0.9);
-    }
-
-    .note {
+    .note, .footer, .contact, .powered {
       margin-top: 20px;
       font-size: 14px;
       color: #333;
       text-align: center;
     }
 
-    @media (max-width: 700px) {
-      h1 {
-        font-size: 1.4em;
-      }
-
-      th, td {
-        font-size: 13px;
-        padding: 10px;
-      }
-
-      .container {
-        margin: 20px;
-      }
+    .star-rating {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 18px;
     }
+
+    .stars {
+      color: gold;
+      font-size: 24px;
+    }
+
+    #visitor-count {
+      position: fixed;
+      bottom: 10px;
+      right: 15px;
+      background: #003366;
+      color: white;
+      padding: 8px 15px;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    .admin-btn {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      background: #003366;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    #admin-login {
+      display: none;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    #comments {
+      display: none;
+      margin-top: 20px;
+    }
+
+    textarea {
+      width: 100%;
+      height: 80px;
+      margin-bottom: 10px;
+    }
+
+    .comment-box {
+      background: #eee;
+      padding: 10px;
+      margin: 5px 0;
+      border-left: 4px solid #003366;
+    }
+
   </style>
 </head>
-<body id="bg">
+<body>
+
+  <!-- Slideshow -->
+  <div class="slideshow">
+    <img src="img.jpeg" class="slide active" />
+    <img src="img1.jpeg" class="slide" />
+    <img src="img2.jpeg" class="slide" />
+    <img src="img3.jpeg" class="slide" />
+    <img src="img4.jpeg" class="slide" />
+  </div>
+
+  <!-- Admin Login Button -->
+  <button class="admin-btn" onclick="showLogin()">Admin</button>
+
+  <!-- Room Rates Table -->
   <div class="container">
     <h1>BON Hotel Hyatti Warri<br>Room Rates</h1>
-
     <table>
       <thead>
         <tr>
@@ -99,7 +162,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr><td>Studio Room</td><td>₦112,000.00</td><td>₦108,800.00</td></tr>
+        <tr><td>Studio Room</td><td>₦112,000.00</td><td>₦100,800.00</td></tr>
         <tr><td>Classic Room</td><td>₦120,000.00</td><td>₦108,000.00</td></tr>
         <tr><td>Deluxe Room</td><td>₦146,000.00</td><td>₦131,400.00</td></tr>
         <tr><td>Royal Room</td><td>₦180,000.00</td><td>₦162,000.00</td></tr>
@@ -110,32 +173,94 @@
     </table>
 
     <div class="note">
-      Rates are inclusive of VAT, service charge, and complimentary breakfast.
+      Single Rooms come with complimentary breakfast for 1 person.<br>
+      All Suites include breakfast for 2 persons, and complimentary access to pool and gym.
+    </div>
+
+    <div class="star-rating">
+      Overall Rating: <span class="stars">★★★★☆</span> (4.0 / 5)
+    </div>
+
+    <div class="contact">
+      Address: BON Hotel Hyatti Warri, Airport Road, Warri, Delta State, Nigeria<br>
+      Phone: +234 803 123 4567, +234 802 987 6543
+    </div>
+
+    <div class="note">To make reservations, kindly contact the hotel directly.</div>
+
+    <div class="footer">
+      Contact the web designer: <a href="mailto:walkernight365@gmail.com">walkernight365@gmail.com</a>
+    </div>
+
+    <div class="powered">Powered by Lighthouse</div>
+
+    <!-- Admin Login -->
+    <div id="admin-login">
+      <input type="password" id="admin-password" placeholder="Enter Admin Password" />
+      <button onclick="verifyPassword()">Submit</button>
+    </div>
+
+    <!-- Hidden Comments Section -->
+    <div id="comments">
+      <h3>Guest Comments</h3>
+      <textarea id="new-comment" placeholder="Leave a comment..."></textarea>
+      <button onclick="addComment()">Post Comment</button>
+      <div id="comment-list"></div>
     </div>
   </div>
 
-  <script>
-    const backgrounds = [
-      "img.jpeg",
-      "img1.jpeg",
-      "img2.jpeg",
-      "img3.jpeg",
-      "img4.jpeg"
-    ];
-    let index = 0;
-    const bg = document.getElementById('bg');
+  <!-- Visitor Counter -->
+  <div id="visitor-count">Visitors: <span id="count">0</span></div>
 
-    function changeBackground() {
-      bg.style.opacity = 0.8;
-      setTimeout(() => {
-        bg.style.backgroundImage = `url('${backgrounds[index]}')`;
-        index = (index + 1) % backgrounds.length;
-        bg.style.opacity = 1;
-      }, 300);
+  <!-- Scripts -->
+  <script>
+    // Slideshow
+    const slides = document.querySelectorAll('.slide');
+    let current = 0;
+    setInterval(() => {
+      slides[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+    }, 5000);
+
+    // Visitor Counter
+    let visits = localStorage.getItem("visitCount") || 0;
+    visits++;
+    localStorage.setItem("visitCount", visits);
+    document.getElementById("count").innerText = visits;
+
+    // Admin Login
+    function showLogin() {
+      document.getElementById("admin-login").style.display = "block";
     }
 
-    changeBackground();
-    setInterval(changeBackground, 5000);
+    function verifyPassword() {
+      const pass = document.getElementById("admin-password").value.toLowerCase();
+      if (pass === "naruto") {
+        document.getElementById("comments").style.display = "block";
+        document.getElementById("admin-login").style.display = "none";
+        loadComments();
+      } else {
+        alert("Incorrect password");
+      }
+    }
+
+    // Comments
+    function addComment() {
+      const text = document.getElementById("new-comment").value.trim();
+      if (!text) return;
+      let stored = JSON.parse(localStorage.getItem("comments") || "[]");
+      stored.push(text);
+      localStorage.setItem("comments", JSON.stringify(stored));
+      document.getElementById("new-comment").value = "";
+      loadComments();
+    }
+
+    function loadComments() {
+      let stored = JSON.parse(localStorage.getItem("comments") || "[]");
+      document.getElementById("comment-list").innerHTML =
+        stored.map(c => `<div class="comment-box">${c}</div>`).join('');
+    }
   </script>
 </body>
-</html>
+      </html>
