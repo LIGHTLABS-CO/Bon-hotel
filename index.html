@@ -6,12 +6,12 @@
   <title>BON Hotel Hyatti Warri - Room Rates</title>
   <style>
     * { box-sizing: border-box; }
-    html, body {
+    body, html {
       margin: 0;
       padding: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      height: 100%;
       overflow-x: hidden;
-      background: #f9f9f9;
     }
 
     .slideshow {
@@ -22,6 +22,7 @@
       height: 100%;
       overflow: hidden;
     }
+
     .slide {
       position: absolute;
       width: 100%;
@@ -30,6 +31,7 @@
       opacity: 0;
       transition: opacity 2s ease-in-out;
     }
+
     .slide.active {
       opacity: 1;
     }
@@ -37,10 +39,12 @@
     .container {
       max-width: 900px;
       margin: 50px auto;
-      background: rgba(255, 255, 255, 0.85); /* FINAL FIX */
+      background: rgba(255, 255, 255, 0.85);
       padding: 30px;
       border-radius: 8px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      position: relative;
+      z-index: 1;
     }
 
     h1 {
@@ -49,12 +53,11 @@
       margin-bottom: 10px;
     }
 
-    .table-note {
-      font-size: 14px;
+    .swipe-tip {
       text-align: center;
-      font-style: italic;
+      font-size: 14px;
       color: #003366;
-      margin-bottom: 15px;
+      margin-bottom: 10px;
     }
 
     .table-wrapper {
@@ -63,8 +66,8 @@
 
     table {
       width: 100%;
-      border-collapse: collapse;
       min-width: 600px;
+      border-collapse: collapse;
     }
 
     th, td {
@@ -89,15 +92,30 @@
       text-align: center;
     }
 
-    .star-rating, .rating-stars {
+    .star-rating {
+      margin: 30px 0 10px;
       text-align: center;
-      margin-top: 30px;
+      font-size: 18px;
     }
 
-    .stars, .rating-stars span {
-      font-size: 26px;
+    .stars {
       color: gold;
+      font-size: 24px;
+    }
+
+    .rating-stars {
+      text-align: center;
+      margin: 10px 0;
+    }
+
+    .rating-stars span {
       cursor: pointer;
+      font-size: 26px;
+      color: #999;
+    }
+
+    .rating-stars span.selected {
+      color: gold;
     }
 
     #visitor-count {
@@ -111,13 +129,6 @@
       font-size: 14px;
     }
 
-    .comment-box {
-      background: #eee;
-      padding: 10px;
-      margin: 5px 0;
-      border-left: 4px solid #003366;
-    }
-
     textarea {
       width: 100%;
       height: 80px;
@@ -125,17 +136,29 @@
       resize: vertical;
     }
 
-    button {
-      padding: 8px 15px;
-      background: #003366;
-      color: white;
-      border: none;
-      border-radius: 4px;
+    .comment-box {
+      background: #eee;
+      padding: 10px;
+      margin: 5px 0;
+      border-left: 4px solid #003366;
+    }
+
+    #comment-list > div:nth-child(n+6) {
+      display: none;
+    }
+
+    #show-more {
+      display: block;
+      margin: 10px auto;
+      text-align: center;
+      color: #003366;
       cursor: pointer;
     }
   </style>
 </head>
 <body>
+
+  <!-- Slideshow -->
   <div class="slideshow">
     <img src="img.jpeg" class="slide active" />
     <img src="img1.jpeg" class="slide" />
@@ -144,10 +167,10 @@
     <img src="img4.jpeg" class="slide" />
   </div>
 
+  <!-- Main Content -->
   <div class="container">
     <h1>BON Hotel Hyatti Warri<br>Room Rates</h1>
-
-    <div class="table-note">👉 Swipe left/right to see full table 👈</div>
+    <div class="swipe-tip">👉 Swipe left/right to see full table 👈</div>
 
     <div class="table-wrapper">
       <table>
@@ -177,11 +200,11 @@
     </div>
 
     <div class="star-rating">
-      Overall Rating: <span class="stars" id="average-stars"></span> <span id="rating-value"></span>
+      Overall Rating: <span class="stars" id="average-stars">★★★★☆</span> <span id="rating-value">(4.0 / 5)</span>
     </div>
 
     <div class="rating-stars">
-      <p><strong>Rate this website</strong></p>
+      <p><strong>What do you think about the website?</strong></p>
       <span onclick="rate(1)">★</span>
       <span onclick="rate(2)">★</span>
       <span onclick="rate(3)">★</span>
@@ -189,17 +212,18 @@
       <span onclick="rate(5)">★</span>
     </div>
 
-    <div class="note" style="font-size: 18px; font-weight: bold; margin-top: 40px; text-align: center;">💬 Visitor Feedback</div>
-    <textarea id="new-comment" placeholder="Leave a comment..."></textarea>
-    <button onclick="addComment()">Post Comment</button>
-    <div id="comment-list"></div>
-    <button onclick="showOlderComments()" id="show-older" style="display:none; margin-top:10px;">Show Older Comments</button>
+    <!-- Comment Section -->
+    <div>
+      <h3 style="text-align:center; color:#003366;">Visitor Comments</h3>
+      <textarea id="new-comment" placeholder="Leave a comment..."></textarea>
+      <button onclick="addComment()">Post Comment</button>
+      <div id="comment-list"></div>
+      <div id="show-more" onclick="showMore()">Show older comments</div>
+    </div>
 
     <div class="contact">
-      Address: 2 Omamor Street, Ekpan Warri, Delta, Nigeria<br>
-      Phone: +234 (0) 703 900 6667<br>
-      WhatsApp: +234 915 996 7494<br>
-      Email: reservations@bonhotelhyatti.com
+      Address: BON Hotel Hyatti Warri, Airport Road, Warri, Delta State, Nigeria<br>
+      Phone: +234 803 123 4567, +234 802 987 6543
     </div>
 
     <div class="note">To make reservations, kindly contact the hotel directly.</div>
@@ -211,9 +235,12 @@
     <div class="powered">Powered by Lighthouse</div>
   </div>
 
+  <!-- Visitor Counter -->
   <div id="visitor-count">Visitors: <span id="count">0</span></div>
 
+  <!-- Scripts -->
   <script>
+    // Slideshow
     const slides = document.querySelectorAll('.slide');
     let current = 0;
     setInterval(() => {
@@ -222,51 +249,67 @@
       slides[current].classList.add('active');
     }, 5000);
 
+    // Visitor Counter
     let visits = localStorage.getItem("visitCount") || 0;
     visits++;
     localStorage.setItem("visitCount", visits);
     document.getElementById("count").innerText = visits;
 
-    function rate(val) {
-      localStorage.setItem("userRating", val);
-      updateAverage();
-    }
-
-    function updateAverage() {
-      let rating = parseInt(localStorage.getItem("userRating") || 0);
-      let stars = "";
-      for (let i = 1; i <= 5; i++) {
-        stars += i <= rating ? "★" : "☆";
-      }
-      document.getElementById("average-stars").innerText = stars;
-      document.getElementById("rating-value").innerText = rating ? `(${rating}.0 / 5)` : "(No rating yet)";
-    }
-    updateAverage();
-
+    // Comments
     function addComment() {
-      let val = document.getElementById("new-comment").value.trim();
-      if (!val) return;
-      let all = JSON.parse(localStorage.getItem("comments") || "[]");
-      all.unshift(val);
-      localStorage.setItem("comments", JSON.stringify(all));
+      const text = document.getElementById("new-comment").value.trim();
+      if (!text) return;
+      let stored = JSON.parse(localStorage.getItem("comments") || "[]");
+      stored.push(text);
+      localStorage.setItem("comments", JSON.stringify(stored));
       document.getElementById("new-comment").value = "";
       loadComments();
     }
 
     function loadComments() {
-      let all = JSON.parse(localStorage.getItem("comments") || "[]");
-      let recent = all.slice(0, 5);
-      document.getElementById("comment-list").innerHTML = recent.map(c => `<div class='comment-box'>${c}</div>`).join('');
-      document.getElementById("show-older").style.display = all.length > 5 ? "inline-block" : "none";
+      let stored = JSON.parse(localStorage.getItem("comments") || "[]");
+      const list = document.getElementById("comment-list");
+      list.innerHTML = stored.map((c, i) => `<div class="comment-box" style="display:${i < 5 ? 'block' : 'none'}">${c}</div>`).join('');
     }
 
-    function showOlderComments() {
-      let all = JSON.parse(localStorage.getItem("comments") || "[]");
-      document.getElementById("comment-list").innerHTML = all.map(c => `<div class='comment-box'>${c}</div>`).join('');
-      document.getElementById("show-older").style.display = "none";
+    function showMore() {
+      const boxes = document.querySelectorAll(".comment-box");
+      boxes.forEach(box => box.style.display = "block");
+      document.getElementById("show-more").style.display = "none";
     }
 
+    // Rating
+    function rate(val) {
+      localStorage.setItem("userRating", val);
+      let ratings = JSON.parse(localStorage.getItem("ratings") || "[]");
+      ratings.push(val);
+      localStorage.setItem("ratings", JSON.stringify(ratings));
+      updateAverage();
+    }
+
+    function updateAverage() {
+      let ratings = JSON.parse(localStorage.getItem("ratings") || "[]");
+      let userRating = parseInt(localStorage.getItem("userRating"));
+      if (userRating) {
+        // Replace last rating from this session
+        ratings[ratings.length - 1] = userRating;
+        localStorage.setItem("ratings", JSON.stringify(ratings));
+      }
+
+      let avg = ratings.length ? (ratings.reduce((a, b) => a + b) / ratings.length) : 0;
+      let stars = "☆☆☆☆☆".split('');
+      for (let i = 0; i < Math.round(avg); i++) stars[i] = '★';
+      document.getElementById("average-stars").innerText = stars.join('');
+      document.getElementById("rating-value").innerText = `(${avg.toFixed(1)} / 5)`;
+
+      // update selected state
+      document.querySelectorAll(".rating-stars span").forEach((el, i) => {
+        el.classList.toggle("selected", i < userRating);
+      });
+    }
+
+    updateAverage();
     loadComments();
   </script>
 </body>
-</html>
+  </html>
