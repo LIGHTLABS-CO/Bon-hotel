@@ -12,45 +12,54 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-size: cover;
       background-position: center;
+      background-repeat: no-repeat;
       transition: background-image 1s ease-in-out;
       color: white;
     }
+
     .container {
       max-width: 900px;
       margin: 40px auto;
-      background: rgba(0,0,0,0.7); /* transparent overlay */
+      background: rgba(0, 0, 0, 0.6); /* Transparent dark overlay */
       padding: 30px;
       box-shadow: 0 0 10px rgba(0,0,0,0.4);
       border-radius: 10px;
+      backdrop-filter: blur(4px);
     }
+
     h1 {
       text-align: center;
       color: #fff;
       margin-bottom: 20px;
     }
+
     table {
       width: 100%;
       border-collapse: collapse;
       margin-top: 20px;
-      background-color: white;
+      background-color: rgba(255,255,255,0.95); /* Semi-transparent white */
       color: #000;
     }
+
     th, td {
       border: 1px solid #ddd;
       padding: 12px;
       text-align: center;
     }
+
     th {
       background-color: #003366;
       color: white;
     }
+
     tr:nth-child(even) {
       background-color: #f9f9f9;
     }
+
     .note {
       margin-top: 20px;
       font-size: 14px;
-      color: #ddd;
+      color: #eee;
       text-align: center;
     }
   </style>
@@ -58,6 +67,7 @@
 <body id="bg">
   <div class="container">
     <h1>BON Hotel Hyatti Warri<br>Room Rates</h1>
+
     <table>
       <thead>
         <tr>
@@ -76,6 +86,7 @@
         <tr><td>Self Catering Suite</td><td>₦300,000.00</td><td>₦270,000.00</td></tr>
       </tbody>
     </table>
+
     <div class="note">
       Rates are inclusive of VAT, service charge, and complimentary breakfast.
     </div>
@@ -91,10 +102,16 @@
     ];
     let index = 0;
     const bg = document.getElementById('bg');
+
     function changeBackground() {
-      bg.style.backgroundImage = `url('${backgrounds[index]}')`;
-      index = (index + 1) % backgrounds.length;
+      bg.style.opacity = 0.6;
+      setTimeout(() => {
+        bg.style.backgroundImage = `url('${backgrounds[index]}')`;
+        bg.style.opacity = 1;
+        index = (index + 1) % backgrounds.length;
+      }, 300);
     }
+
     changeBackground();
     setInterval(changeBackground, 5000);
   </script>
