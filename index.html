@@ -6,9 +6,9 @@
   <title>BON Hotel Hyatti Warri - Room Rates</title>
   <style>
     html, body {
-      height: 100%;
       margin: 0;
       padding: 0;
+      height: 100%;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-size: cover;
       background-position: center;
@@ -18,33 +18,36 @@
     }
 
     .container {
-      max-width: 900px;
+      max-width: 1000px;
       margin: 40px auto;
-      background: rgba(0, 0, 0, 0.6); /* Transparent dark overlay */
-      padding: 30px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+      background: rgba(255, 255, 255, 0.8); /* only the container is translucent */
+      padding: 20px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.4);
       border-radius: 10px;
       backdrop-filter: blur(4px);
+      overflow-x: auto;
+      color: #000;
     }
 
     h1 {
       text-align: center;
-      color: #fff;
+      color: #111;
+      font-size: 1.8em;
       margin-bottom: 20px;
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 20px;
-      background-color: rgba(255,255,255,0.95); /* Semi-transparent white */
-      color: #000;
+      min-width: 600px;
+      background: transparent;
     }
 
     th, td {
-      border: 1px solid #ddd;
+      border: 1px solid #999;
       padding: 12px;
       text-align: center;
+      font-size: 14px;
     }
 
     th {
@@ -53,14 +56,33 @@
     }
 
     tr:nth-child(even) {
-      background-color: #f9f9f9;
+      background-color: rgba(240, 240, 240, 0.9);
+    }
+
+    tr:nth-child(odd) {
+      background-color: rgba(255, 255, 255, 0.9);
     }
 
     .note {
       margin-top: 20px;
       font-size: 14px;
-      color: #eee;
+      color: #333;
       text-align: center;
+    }
+
+    @media (max-width: 700px) {
+      h1 {
+        font-size: 1.4em;
+      }
+
+      th, td {
+        font-size: 13px;
+        padding: 10px;
+      }
+
+      .container {
+        margin: 20px;
+      }
     }
   </style>
 </head>
@@ -104,11 +126,11 @@
     const bg = document.getElementById('bg');
 
     function changeBackground() {
-      bg.style.opacity = 0.6;
+      bg.style.opacity = 0.8;
       setTimeout(() => {
         bg.style.backgroundImage = `url('${backgrounds[index]}')`;
-        bg.style.opacity = 1;
         index = (index + 1) % backgrounds.length;
+        bg.style.opacity = 1;
       }, 300);
     }
 
