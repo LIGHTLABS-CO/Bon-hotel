@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,7 +23,7 @@
       height: 100%;
       overflow: hidden;
     }
-    .slideshow img {
+    .slide {
       position: absolute;
       width: 100%;
       height: 100%;
@@ -30,7 +31,7 @@
       opacity: 0;
       transition: opacity 2s ease-in-out;
     }
-    .slideshow img.active {
+    .slide.active {
       opacity: 1;
     }
 
@@ -46,20 +47,19 @@
     h1 {
       text-align: center;
       color: #003366;
-      margin-bottom: 20px;
-    }
-
-    .table-wrapper {
-      overflow-x: auto;
+      margin-bottom: 10px;
     }
 
     .table-note {
       font-size: 14px;
-      text-align: right;
+      text-align: center;
       font-style: italic;
-      color: #666;
-      margin-top: -10px;
-      margin-bottom: 10px;
+      color: #003366;
+      margin-bottom: 15px;
+    }
+
+    .table-wrapper {
+      overflow-x: auto;
     }
 
     table {
@@ -99,10 +99,6 @@
       font-size: 26px;
       color: gold;
       cursor: pointer;
-    }
-
-    .rating-stars span.inactive {
-      color: #ccc;
     }
 
     #visitor-count {
@@ -152,8 +148,9 @@
   <div class="container">
     <h1>BON Hotel Hyatti Warri<br>Room Rates</h1>
 
+    <div class="table-note">👉 Swipe left/right to see full table 👈</div>
+
     <div class="table-wrapper">
-      <div class="table-note">Swipe left/right to see full table</div>
       <table>
         <thead>
           <tr>
@@ -184,7 +181,7 @@
       Overall Rating: <span class="stars" id="average-stars"></span> <span id="rating-value"></span>
     </div>
 
-    <div class="rating-stars" id="interactive-stars">
+    <div class="rating-stars">
       <p><strong>Rate this website</strong></p>
       <span onclick="rate(1)">★</span>
       <span onclick="rate(2)">★</span>
@@ -218,7 +215,6 @@
   <div id="visitor-count">Visitors: <span id="count">0</span></div>
 
   <script>
-    // Slideshow
     const slides = document.querySelectorAll('.slide');
     let current = 0;
     setInterval(() => {
@@ -227,13 +223,11 @@
       slides[current].classList.add('active');
     }, 5000);
 
-    // Visitor Counter
     let visits = localStorage.getItem("visitCount") || 0;
     visits++;
     localStorage.setItem("visitCount", visits);
     document.getElementById("count").innerText = visits;
 
-    // Star Rating
     function rate(val) {
       localStorage.setItem("userRating", val);
       updateAverage();
@@ -250,7 +244,6 @@
     }
     updateAverage();
 
-    // Comments
     function addComment() {
       let val = document.getElementById("new-comment").value.trim();
       if (!val) return;
