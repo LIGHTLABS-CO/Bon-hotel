@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -11,131 +12,132 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       overflow-x: hidden;
       background: #f9f9f9;
-    }.slideshow {
-  position: fixed;
-  z-index: -1;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-.slideshow img {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0;
-  transition: opacity 2s ease-in-out;
-}
-.slideshow img.active {
-  opacity: 1;
-}
+    }
 
-.container {
-  max-width: 900px;
-  margin: 50px auto;
-  background: rgba(255, 255, 255, 0.95);
-  padding: 30px;
-  border-radius: 8px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.1);
-}
+    .slideshow {
+      position: fixed;
+      z-index: -1;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    .slideshow img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 2s ease-in-out;
+    }
+    .slideshow img.active {
+      opacity: 1;
+    }
 
-h1 {
-  text-align: center;
-  color: #003366;
-  margin-bottom: 20px;
-}
+    .container {
+      max-width: 900px;
+      margin: 50px auto;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    }
 
-.table-wrapper {
-  overflow-x: auto;
-}
+    h1 {
+      text-align: center;
+      color: #003366;
+      margin-bottom: 20px;
+    }
 
-.table-note {
-  font-size: 14px;
-  text-align: right;
-  font-style: italic;
-  color: #666;
-  margin-top: -10px;
-  margin-bottom: 10px;
-}
+    .table-wrapper {
+      overflow-x: auto;
+    }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-  min-width: 600px;
-}
+    .table-note {
+      font-size: 14px;
+      text-align: right;
+      font-style: italic;
+      color: #666;
+      margin-top: -10px;
+      margin-bottom: 10px;
+    }
 
-th, td {
-  border: 1px solid #ddd;
-  padding: 12px;
-  text-align: center;
-}
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 600px;
+    }
 
-th {
-  background-color: #003366;
-  color: white;
-}
+    th, td {
+      border: 1px solid #ddd;
+      padding: 12px;
+      text-align: center;
+    }
 
-tr:nth-child(even) {
-  background-color: #f2f2f2;
-}
+    th {
+      background-color: #003366;
+      color: white;
+    }
 
-.note, .footer, .contact, .powered {
-  margin-top: 20px;
-  font-size: 14px;
-  color: #333;
-  text-align: center;
-}
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
 
-.star-rating, .rating-stars {
-  text-align: center;
-  margin-top: 30px;
-}
+    .note, .footer, .contact, .powered {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #333;
+      text-align: center;
+    }
 
-.stars, .rating-stars span {
-  font-size: 26px;
-  color: gold;
-  cursor: pointer;
-}
+    .star-rating, .rating-stars {
+      text-align: center;
+      margin-top: 30px;
+    }
 
-.rating-stars span.inactive {
-  color: #ccc;
-}
+    .stars, .rating-stars span {
+      font-size: 26px;
+      color: gold;
+      cursor: pointer;
+    }
 
-#visitor-count {
-  position: fixed;
-  bottom: 10px;
-  right: 15px;
-  background: #003366;
-  color: white;
-  padding: 8px 15px;
-  border-radius: 5px;
-  font-size: 14px;
-}
+    .rating-stars span.inactive {
+      color: #ccc;
+    }
 
-.comment-box {
-  background: #eee;
-  padding: 10px;
-  margin: 5px 0;
-  border-left: 4px solid #003366;
-}
+    #visitor-count {
+      position: fixed;
+      bottom: 10px;
+      right: 15px;
+      background: #003366;
+      color: white;
+      padding: 8px 15px;
+      border-radius: 5px;
+      font-size: 14px;
+    }
 
-textarea {
-  width: 100%;
-  height: 80px;
-  margin: 10px 0;
-  resize: vertical;
-}
+    .comment-box {
+      background: #eee;
+      padding: 10px;
+      margin: 5px 0;
+      border-left: 4px solid #003366;
+    }
 
-button {
-  padding: 8px 15px;
-  background: #003366;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
+    textarea {
+      width: 100%;
+      height: 80px;
+      margin: 10px 0;
+      resize: vertical;
+    }
 
+    button {
+      padding: 8px 15px;
+      background: #003366;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
@@ -145,27 +147,135 @@ button {
     <img src="img2.jpeg" class="slide" />
     <img src="img3.jpeg" class="slide" />
     <img src="img4.jpeg" class="slide" />
-  </div>  <div class="container">
-    <h1>BON Hotel Hyatti Warri<br>Room Rates</h1><div class="table-wrapper">
-  <div class="table-note">Swipe left/right to see full table</div>
-  <table>
-    <thead>
-      <tr>
-        <th>Room Type</th>
-        <th>Best Available Rate</th>
-        <th>BONami Rate<br><small>(10% Off with Membership)</small></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr><td>Studio Room</td><td>₦112,000.00</td><td>₦100,800.00</td></tr>
-      <tr><td>Classic Room</td><td>₦120,000.00</td><td>₦108,000.00</td></tr>
-      <tr><td>Deluxe Room</td><td>₦146,000.00</td><td>₦131,400.00</td></tr>
-      <tr><td>Royal Room</td><td>₦180,000.00</td><td>₦162,000.00</td></tr>
-      <tr><td>Executive Suite</td><td>₦260,000.00</td><td>₦234,000.00</td></tr>
-      <tr><td>Ambassador Suite</td><td>₦300,000.00</td><td>₦270,000.00</td></tr>
-      <tr><td>Self Catering Suite</td><td>₦300,000.00</td><td>₦270,000.00</td></tr>
-    </tbody>
-  </table>
-</div>
+  </div>
 
-    
+  <div class="container">
+    <h1>BON Hotel Hyatti Warri<br>Room Rates</h1>
+
+    <div class="table-wrapper">
+      <div class="table-note">Swipe left/right to see full table</div>
+      <table>
+        <thead>
+          <tr>
+            <th>Room Type</th>
+            <th>Best Available Rate</th>
+            <th>BONami Rate<br><small>(10% Off with Membership)</small></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Studio Room</td><td>₦112,000.00</td><td>₦100,800.00</td></tr>
+          <tr><td>Classic Room</td><td>₦120,000.00</td><td>₦108,000.00</td></tr>
+          <tr><td>Deluxe Room</td><td>₦146,000.00</td><td>₦131,400.00</td></tr>
+          <tr><td>Royal Room</td><td>₦180,000.00</td><td>₦162,000.00</td></tr>
+          <tr><td>Executive Suite</td><td>₦260,000.00</td><td>₦234,000.00</td></tr>
+          <tr><td>Ambassador Suite</td><td>₦300,000.00</td><td>₦270,000.00</td></tr>
+          <tr><td>Self Catering Suite</td><td>₦300,000.00</td><td>₦270,000.00</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note">
+      Single Rooms include complimentary breakfast for 1 guest.<br>
+      Suites include complimentary breakfast for 2 guests.<br>
+      <strong>All room types include complimentary access to the pool and gym facilities.</strong>
+    </div>
+
+    <div class="star-rating">
+      Overall Rating: <span class="stars" id="average-stars"></span> <span id="rating-value"></span>
+    </div>
+
+    <div class="rating-stars" id="interactive-stars">
+      <p><strong>Rate this website</strong></p>
+      <span onclick="rate(1)">★</span>
+      <span onclick="rate(2)">★</span>
+      <span onclick="rate(3)">★</span>
+      <span onclick="rate(4)">★</span>
+      <span onclick="rate(5)">★</span>
+    </div>
+
+    <div class="note" style="font-size: 18px; font-weight: bold; margin-top: 40px; text-align: center;">💬 Visitor Feedback</div>
+    <textarea id="new-comment" placeholder="Leave a comment..."></textarea>
+    <button onclick="addComment()">Post Comment</button>
+    <div id="comment-list"></div>
+    <button onclick="showOlderComments()" id="show-older" style="display:none; margin-top:10px;">Show Older Comments</button>
+
+    <div class="contact">
+      Address: 2 Omamor Street, Ekpan Warri, Delta, Nigeria<br>
+      Phone: +234 (0) 703 900 6667<br>
+      WhatsApp: +234 915 996 7494<br>
+      Email: reservations@bonhotelhyatti.com
+    </div>
+
+    <div class="note">To make reservations, kindly contact the hotel directly.</div>
+
+    <div class="footer">
+      Contact the web designer: <a href="mailto:walkernight365@gmail.com">walkernight365@gmail.com</a>
+    </div>
+
+    <div class="powered">Powered by Lighthouse</div>
+  </div>
+
+  <div id="visitor-count">Visitors: <span id="count">0</span></div>
+
+  <script>
+    // Slideshow
+    const slides = document.querySelectorAll('.slide');
+    let current = 0;
+    setInterval(() => {
+      slides[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+    }, 5000);
+
+    // Visitor Counter
+    let visits = localStorage.getItem("visitCount") || 0;
+    visits++;
+    localStorage.setItem("visitCount", visits);
+    document.getElementById("count").innerText = visits;
+
+    // Star Rating
+    function rate(val) {
+      localStorage.setItem("userRating", val);
+      updateAverage();
+    }
+
+    function updateAverage() {
+      let rating = parseInt(localStorage.getItem("userRating") || 0);
+      let stars = "";
+      for (let i = 1; i <= 5; i++) {
+        stars += i <= rating ? "★" : "☆";
+      }
+      document.getElementById("average-stars").innerText = stars;
+      document.getElementById("rating-value").innerText = rating ? `(${rating}.0 / 5)` : "(No rating yet)";
+    }
+    updateAverage();
+
+    // Comments
+    function addComment() {
+      let val = document.getElementById("new-comment").value.trim();
+      if (!val) return;
+      let all = JSON.parse(localStorage.getItem("comments") || "[]");
+      all.unshift(val);
+      localStorage.setItem("comments", JSON.stringify(all));
+      document.getElementById("new-comment").value = "";
+      loadComments();
+    }
+
+    function loadComments() {
+      let all = JSON.parse(localStorage.getItem("comments") || "[]");
+      let recent = all.slice(0, 5);
+      document.getElementById("comment-list").innerHTML = recent.map(c => `<div class='comment-box'>${c}</div>`).join('');
+      document.getElementById("show-older").style.display = all.length > 5 ? "inline-block" : "none";
+    }
+
+    function showOlderComments() {
+      let all = JSON.parse(localStorage.getItem("comments") || "[]");
+      document.getElementById("comment-list").innerHTML = all.map(c => `<div class='comment-box'>${c}</div>`).join('');
+      document.getElementById("show-older").style.display = "none";
+    }
+
+    loadComments();
+  </script>
+</body>
+</html>
+```
