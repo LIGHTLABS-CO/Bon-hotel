@@ -11,13 +11,14 @@
       margin: 0;
       padding: 0;
       font-family: 'Poppins', sans-serif;
-      background: #f7f9fc;
+      height: 100%;
       overflow-x: hidden;
+      background: #000;
     }
 
     .slideshow {
       position: fixed;
-      z-index: -1;
+      z-index: -2;
       top: 0; left: 0;
       width: 100%;
       height: 100%;
@@ -37,22 +38,32 @@
       opacity: 1;
     }
 
+    .overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.7));
+      z-index: -1;
+    }
+
     .container {
       max-width: 900px;
-      margin: 50px auto;
-      background: rgba(255, 255, 255, 0.95);
-      padding: 30px;
+      margin: 60px auto;
+      background: rgba(255, 255, 255, 0.93);
+      padding: 40px;
       border-radius: 10px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      box-shadow: 0 0 30px rgba(0,0,0,0.25);
       position: relative;
       z-index: 1;
     }
 
     h1 {
       text-align: center;
-      color: #003366;
-      margin-bottom: 10px;
+      color: #002244;
+      font-size: 32px;
       font-weight: 700;
+      margin-bottom: 10px;
     }
 
     .swipe-tip {
@@ -70,30 +81,62 @@
       width: 100%;
       min-width: 600px;
       border-collapse: collapse;
-      margin-bottom: 20px;
+      font-size: 15px;
     }
 
     th, td {
-      border: 1px solid #ddd;
-      padding: 12px;
+      border: 1px solid #ccc;
+      padding: 14px;
       text-align: center;
-      font-weight: 500;
     }
 
     th {
-      background-color: #003366;
+      background-color: #002244;
       color: white;
+      font-weight: 600;
     }
 
     tr:nth-child(even) {
-      background-color: #f2f2f2;
+      background-color: #f8f8f8;
     }
 
     .note, .footer, .contact, .powered {
-      margin-top: 20px;
+      margin-top: 25px;
       font-size: 14px;
+      color: #222;
       text-align: center;
-      color: #333;
+    }
+
+    .note strong {
+      font-weight: 600;
+    }
+
+    .star-rating {
+      margin: 35px 0 15px;
+      text-align: center;
+      font-size: 18px;
+    }
+
+    .stars {
+      color: gold;
+      font-size: 26px;
+      letter-spacing: 4px;
+    }
+
+    .rating-stars {
+      text-align: center;
+      margin: 10px 0 20px;
+    }
+
+    .rating-stars span {
+      cursor: pointer;
+      font-size: 28px;
+      color: #bbb;
+      margin: 0 4px;
+    }
+
+    .rating-stars span.selected {
+      color: gold;
     }
 
     #visitor-count {
@@ -107,134 +150,65 @@
       font-size: 14px;
     }
 
-    .review-section {
-      margin-top: 40px;
-      font-family: 'Poppins', sans-serif;
-    }
-
-    .star-inputs {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    .star-inputs span {
-      font-size: 34px;
-      cursor: pointer;
-      color: #ccc;
-      transition: color 0.3s;
-    }
-
-    .star-inputs span.selected {
-      color: gold;
-    }
-
-    .review-card {
-      background: white;
-      border-radius: 12px;
-      padding: 16px 20px;
-      margin: 15px 0;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-    }
-
-    .review-header {
-      display: flex;
-      align-items: center;
-      margin-bottom: 10px;
-    }
-
-    .avatar {
-      width: 40px;
-      height: 40px;
-      background: #ccc;
-      border-radius: 50%;
-      margin-right: 10px;
-      flex-shrink: 0;
-    }
-
-    .review-meta {
-      flex-grow: 1;
-    }
-
-    .review-meta .name {
-      font-weight: 600;
-      font-size: 16px;
-    }
-
-    .review-meta .date {
-      font-size: 13px;
-      color: #666;
-    }
-
-    .review-stars {
-      color: gold;
-      font-size: 20px;
-      margin: 5px 0;
-    }
-
-    .review-text {
-      font-size: 15px;
-      color: #333;
-      line-height: 1.5;
-    }
-
-    .helpful {
-      font-size: 13px;
-      margin-top: 10px;
-      color: #555;
-    }
-
-    .helpful-buttons {
-      margin-top: 5px;
-    }
-
-    .helpful-buttons button {
-      padding: 6px 12px;
-      margin-right: 8px;
-      background: #f0f0f0;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-weight: 500;
-      cursor: pointer;
-    }
-
-    textarea.review-input {
+    textarea {
       width: 100%;
       height: 80px;
-      font-size: 15px;
-      padding: 10px;
-      margin-top: 10px;
+      margin: 10px 0;
       resize: vertical;
+      font-family: 'Poppins', sans-serif;
+      font-size: 14px;
+      padding: 10px;
+      border-radius: 5px;
       border: 1px solid #ccc;
-      border-radius: 8px;
     }
 
-    .btn-submit {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 10px 18px;
+    .comment-box {
+      background: #f4f4f4;
+      padding: 12px;
+      margin: 10px 0;
+      border-left: 4px solid #003366;
+      border-radius: 4px;
       font-size: 15px;
+    }
+
+    #comment-list > div:nth-child(n+6) {
+      display: none;
+    }
+
+    #show-more {
+      display: block;
+      margin: 10px auto;
+      text-align: center;
+      color: #003366;
+      cursor: pointer;
       font-weight: 600;
+    }
+
+    button {
       background: #003366;
       color: white;
+      padding: 10px 20px;
       border: none;
-      border-radius: 8px;
+      font-weight: 600;
+      border-radius: 5px;
       cursor: pointer;
     }
 
-    .review-stars span {
-      font-size: 20px;
+    button:hover {
+      background: #001f4d;
     }
   </style>
 </head>
 <body>
 
   <div class="slideshow">
-    <img src="https://bonhotels.com/sites/default/files/styles/hero/public/hotels/images/Hyatti-Warri.jpg" class="slide active" />
+    <img src="img.jpeg" class="slide active" />
     <img src="img1.jpeg" class="slide" />
     <img src="img2.jpeg" class="slide" />
     <img src="img3.jpeg" class="slide" />
     <img src="img4.jpeg" class="slide" />
   </div>
+  <div class="overlay"></div>
 
   <div class="container">
     <h1>BON Hotel Hyatti Warri<br>Room Rates</h1>
@@ -267,22 +241,25 @@
       <strong>All room types include complimentary access to the pool and gym facilities.</strong>
     </div>
 
-    <div class="review-section">
-      <h3 style="text-align:center; color:#003366; font-weight:700;">What do you think about the website?</h3>
-      
-      <div class="star-inputs">
-        <span onclick="rate(1)">★</span>
-        <span onclick="rate(2)">★</span>
-        <span onclick="rate(3)">★</span>
-        <span onclick="rate(4)">★</span>
-        <span onclick="rate(5)">★</span>
-      </div>
+    <div class="star-rating">
+      Overall Rating: <span class="stars" id="average-stars">★★★★☆</span> <span id="rating-value">(4.0 / 5)</span>
+    </div>
 
-      <textarea class="review-input" id="new-comment" placeholder="Write a review..."></textarea>
-      <button class="btn-submit" onclick="addComment()">Submit Review</button>
+    <div class="rating-stars">
+      <p><strong>What do you think about the website?</strong></p>
+      <span onclick="rate(1)">★</span>
+      <span onclick="rate(2)">★</span>
+      <span onclick="rate(3)">★</span>
+      <span onclick="rate(4)">★</span>
+      <span onclick="rate(5)">★</span>
+    </div>
 
+    <div>
+      <h3 style="text-align:center; color:#003366;">Visitor Comments</h3>
+      <textarea id="new-comment" placeholder="Leave a comment..."></textarea>
+      <button onclick="addComment()">Post Comment</button>
       <div id="comment-list"></div>
-      <div id="show-more" onclick="showMore()" style="text-align:center; color:#003366; cursor:pointer; margin-top:10px;">Show older reviews</div>
+      <div id="show-more" onclick="showMore()">Show older comments</div>
     </div>
 
     <div class="contact">
@@ -315,30 +292,11 @@
     localStorage.setItem("visitCount", visits);
     document.getElementById("count").innerText = visits;
 
-    function rate(val) {
-      if (sessionStorage.getItem("rated")) return;
-      sessionStorage.setItem("rated", "1");
-      localStorage.setItem("userRating", val);
-      let ratings = JSON.parse(localStorage.getItem("ratings") || "[]");
-      ratings.push(val);
-      localStorage.setItem("ratings", JSON.stringify(ratings));
-      updateAverage();
-    }
-
-    function updateAverage() {
-      let userRating = parseInt(localStorage.getItem("userRating"));
-      document.querySelectorAll(".star-inputs span").forEach((el, i) => {
-        el.classList.toggle("selected", i < userRating);
-      });
-    }
-
     function addComment() {
       const text = document.getElementById("new-comment").value.trim();
       if (!text) return;
-      const name = "Visitor";
-      const date = new Date().toLocaleDateString();
       let stored = JSON.parse(localStorage.getItem("comments") || "[]");
-      stored.push({ text, name, date, rating: parseInt(localStorage.getItem("userRating") || 4) });
+      stored.push(text);
       localStorage.setItem("comments", JSON.stringify(stored));
       document.getElementById("new-comment").value = "";
       loadComments();
@@ -347,33 +305,42 @@
     function loadComments() {
       let stored = JSON.parse(localStorage.getItem("comments") || "[]");
       const list = document.getElementById("comment-list");
-      list.innerHTML = stored.map((c, i) => `
-        <div class="review-card" style="display:${i < 5 ? 'block' : 'none'}">
-          <div class="review-header">
-            <div class="avatar"></div>
-            <div class="review-meta">
-              <div class="name">${c.name}</div>
-              <div class="date">${c.date}</div>
-            </div>
-          </div>
-          <div class="review-stars">${"★".repeat(c.rating)}<span style="color:#ccc">${"☆".repeat(5 - c.rating)}</span></div>
-          <div class="review-text">${c.text}</div>
-          <div class="helpful">0 people found this helpful</div>
-          <div class="helpful-buttons">
-            <button>Yes</button>
-            <button>No</button>
-          </div>
-        </div>
-      `).join('');
+      list.innerHTML = stored.map((c, i) => `<div class="comment-box" style="display:${i < 5 ? 'block' : 'none'}">${c}</div>`).join('');
     }
 
     function showMore() {
-      document.querySelectorAll(".review-card").forEach(e => e.style.display = "block");
+      const boxes = document.querySelectorAll(".comment-box");
+      boxes.forEach(box => box.style.display = "block");
       document.getElementById("show-more").style.display = "none";
+    }
+
+    function rate(val) {
+      localStorage.setItem("userRating", val);
+      let ratings = JSON.parse(localStorage.getItem("ratings") || "[]");
+      ratings.push(val);
+      localStorage.setItem("ratings", JSON.stringify(ratings));
+      updateAverage();
+    }
+
+    function updateAverage() {
+      let ratings = JSON.parse(localStorage.getItem("ratings") || "[]");
+      let userRating = parseInt(localStorage.getItem("userRating"));
+      if (userRating) {
+        ratings[ratings.length - 1] = userRating;
+        localStorage.setItem("ratings", JSON.stringify(ratings));
+      }
+      let avg = ratings.length ? (ratings.reduce((a, b) => a + b) / ratings.length) : 0;
+      let stars = "☆☆☆☆☆".split('');
+      for (let i = 0; i < Math.round(avg); i++) stars[i] = '★';
+      document.getElementById("average-stars").innerText = stars.join('');
+      document.getElementById("rating-value").innerText = `(${avg.toFixed(1)} / 5)`;
+      document.querySelectorAll(".rating-stars span").forEach((el, i) => {
+        el.classList.toggle("selected", i < userRating);
+      });
     }
 
     updateAverage();
     loadComments();
   </script>
 </body>
-          </html>
+      </html>
