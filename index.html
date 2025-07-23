@@ -2,150 +2,314 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>BON Hotel Hyatti - Guest Reviews</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BON Hotel Hyatti Warri - Room Rates</title>
   <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #f4f4f4;
+    * { box-sizing: border-box; }
+    body, html {
       margin: 0;
-      padding: 20px;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      height: 100%;
+      overflow-x: hidden;
     }
+
+    .slideshow {
+      position: fixed;
+      z-index: -1;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 2s ease-in-out;
+    }
+
+    .slide.active {
+      opacity: 1;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 50px auto;
+      background: rgba(255, 255, 255, 0.85);
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      position: relative;
+      z-index: 1;
+    }
+
     h1 {
       text-align: center;
+      color: #003366;
       margin-bottom: 10px;
     }
-    .review-box, .add-review {
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      margin: 15px auto;
-      max-width: 600px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+
+    .swipe-tip {
+      text-align: center;
+      font-size: 14px;
+      color: #003366;
+      margin-bottom: 10px;
     }
+
+    .table-wrapper {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      min-width: 600px;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 12px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #003366;
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    .note, .footer, .contact, .powered {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #333;
+      text-align: center;
+    }
+
+    .star-rating {
+      margin: 30px 0 10px;
+      text-align: center;
+      font-size: 18px;
+    }
+
     .stars {
       color: gold;
-      font-size: 20px;
+      font-size: 24px;
     }
-    .avatar {
-      border-radius: 50%;
-      width: 40px;
-      vertical-align: middle;
-      margin-right: 10px;
+
+    .rating-stars {
+      text-align: center;
+      margin: 10px 0;
     }
-    .username {
-      font-weight: bold;
+
+    .rating-stars span {
+      cursor: pointer;
+      font-size: 26px;
+      color: #999;
     }
-    .date {
-      color: gray;
-      font-size: 13px;
+
+    .rating-stars span.selected {
+      color: gold;
     }
-    .actions {
-      margin-top: 10px;
-    }
-    .actions button {
-      margin-right: 10px;
-      background: #eee;
-      border: none;
-      padding: 5px 10px;
+
+    #visitor-count {
+      position: fixed;
+      bottom: 10px;
+      right: 15px;
+      background: #003366;
+      color: white;
+      padding: 8px 15px;
       border-radius: 5px;
+      font-size: 14px;
     }
+
     textarea {
       width: 100%;
       height: 80px;
       margin: 10px 0;
-      padding: 10px;
       resize: vertical;
     }
-    .star-input span {
-      font-size: 28px;
-      cursor: pointer;
-      color: lightgray;
+
+    .comment-box {
+      background: #eee;
+      padding: 10px;
+      margin: 5px 0;
+      border-left: 4px solid #003366;
     }
-    .star-input span.active {
-      color: gold;
+
+    #comment-list > div:nth-child(n+6) {
+      display: none;
+    }
+
+    #show-more {
+      display: block;
+      margin: 10px auto;
+      text-align: center;
+      color: #003366;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
 
-<h1>BON Hotel Hyatti - Guest Reviews</h1>
-
-<div class="add-review">
-  <div class="star-input" id="starInput">
-    <span data-val="1">★</span>
-    <span data-val="2">★</span>
-    <span data-val="3">★</span>
-    <span data-val="4">★</span>
-    <span data-val="5">★</span>
+  <!-- Slideshow -->
+  <div class="slideshow">
+    <img src="img.jpeg" class="slide active" />
+    <img src="img1.jpeg" class="slide" />
+    <img src="img2.jpeg" class="slide" />
+    <img src="img3.jpeg" class="slide" />
+    <img src="img4.jpeg" class="slide" />
   </div>
-  <input type="text" id="name" placeholder="Your name" style="width:100%;padding:8px;" />
-  <textarea id="comment" placeholder="Describe your experience..."></textarea>
-  <button onclick="submitReview()">Submit Review</button>
-</div>
 
-<div id="reviews"></div>
+  <!-- Main Content -->
+  <div class="container">
+    <h1>BON Hotel Hyatti Warri<br>Room Rates</h1>
+    <div class="swipe-tip">👉 Swipe left/right to see full table 👈</div>
 
-<script>
-  let selectedRating = 0;
-  const stars = document.querySelectorAll('#starInput span');
-  stars.forEach(star => {
-    star.addEventListener('click', () => {
-      selectedRating = parseInt(star.dataset.val);
-      stars.forEach(s => s.classList.remove('active'));
-      for (let i = 0; i < selectedRating; i++) {
-        stars[i].classList.add('active');
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Room Type</th>
+            <th>Best Available Rate</th>
+            <th>BONami Rate<br><small>(10% Off with Membership)</small></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Studio Room</td><td>₦112,000.00</td><td>₦100,800.00</td></tr>
+          <tr><td>Classic Room</td><td>₦120,000.00</td><td>₦108,000.00</td></tr>
+          <tr><td>Deluxe Room</td><td>₦146,000.00</td><td>₦131,400.00</td></tr>
+          <tr><td>Royal Room</td><td>₦180,000.00</td><td>₦162,000.00</td></tr>
+          <tr><td>Executive Suite</td><td>₦260,000.00</td><td>₦234,000.00</td></tr>
+          <tr><td>Ambassador Suite</td><td>₦300,000.00</td><td>₦270,000.00</td></tr>
+          <tr><td>Self Catering Suite</td><td>₦300,000.00</td><td>₦270,000.00</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note">
+      Single Rooms include complimentary breakfast for 1 guest.<br>
+      Suites include complimentary breakfast for 2 guests.<br>
+      <strong>All room types include complimentary access to the pool and gym facilities.</strong>
+    </div>
+
+    <div class="star-rating">
+      Overall Rating: <span class="stars" id="average-stars">★★★★☆</span> <span id="rating-value">(4.0 / 5)</span>
+    </div>
+
+    <div class="rating-stars">
+      <p><strong>What do you think about the website?</strong></p>
+      <span onclick="rate(1)">★</span>
+      <span onclick="rate(2)">★</span>
+      <span onclick="rate(3)">★</span>
+      <span onclick="rate(4)">★</span>
+      <span onclick="rate(5)">★</span>
+    </div>
+
+    <!-- Comment Section -->
+    <div>
+      <h3 style="text-align:center; color:#003366;">Visitor Comments</h3>
+      <textarea id="new-comment" placeholder="Leave a comment..."></textarea>
+      <button onclick="addComment()">Post Comment</button>
+      <div id="comment-list"></div>
+      <div id="show-more" onclick="showMore()">Show older comments</div>
+    </div>
+
+    <div class="contact">
+      Address: BON Hotel Hyatti Warri, Airport Road, Warri, Delta State, Nigeria<br>
+      Phone: +234 803 123 4567, +234 802 987 6543
+    </div>
+
+    <div class="note">To make reservations, kindly contact the hotel directly.</div>
+
+    <div class="footer">
+      Contact the web designer: <a href="mailto:walkernight365@gmail.com">walkernight365@gmail.com</a>
+    </div>
+
+    <div class="powered">Powered by Lighthouse</div>
+  </div>
+
+  <!-- Visitor Counter -->
+  <div id="visitor-count">Visitors: <span id="count">0</span></div>
+
+  <!-- Scripts -->
+  <script>
+    // Slideshow
+    const slides = document.querySelectorAll('.slide');
+    let current = 0;
+    setInterval(() => {
+      slides[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+    }, 5000);
+
+    // Visitor Counter
+    let visits = localStorage.getItem("visitCount") || 0;
+    visits++;
+    localStorage.setItem("visitCount", visits);
+    document.getElementById("count").innerText = visits;
+
+    // Comments
+    function addComment() {
+      const text = document.getElementById("new-comment").value.trim();
+      if (!text) return;
+      let stored = JSON.parse(localStorage.getItem("comments") || "[]");
+      stored.push(text);
+      localStorage.setItem("comments", JSON.stringify(stored));
+      document.getElementById("new-comment").value = "";
+      loadComments();
+    }
+
+    function loadComments() {
+      let stored = JSON.parse(localStorage.getItem("comments") || "[]");
+      const list = document.getElementById("comment-list");
+      list.innerHTML = stored.map((c, i) => `<div class="comment-box" style="display:${i < 5 ? 'block' : 'none'}">${c}</div>`).join('');
+    }
+
+    function showMore() {
+      const boxes = document.querySelectorAll(".comment-box");
+      boxes.forEach(box => box.style.display = "block");
+      document.getElementById("show-more").style.display = "none";
+    }
+
+    // Rating
+    function rate(val) {
+      localStorage.setItem("userRating", val);
+      let ratings = JSON.parse(localStorage.getItem("ratings") || "[]");
+      ratings.push(val);
+      localStorage.setItem("ratings", JSON.stringify(ratings));
+      updateAverage();
+    }
+
+    function updateAverage() {
+      let ratings = JSON.parse(localStorage.getItem("ratings") || "[]");
+      let userRating = parseInt(localStorage.getItem("userRating"));
+      if (userRating) {
+        // Replace last rating from this session
+        ratings[ratings.length - 1] = userRating;
+        localStorage.setItem("ratings", JSON.stringify(ratings));
       }
-    });
-  });
 
-  function submitReview() {
-    const name = document.getElementById("name").value.trim();
-    const comment = document.getElementById("comment").value.trim();
-    if (!name || !comment || selectedRating === 0) return alert("Fill all fields and select a rating");
+      let avg = ratings.length ? (ratings.reduce((a, b) => a + b) / ratings.length) : 0;
+      let stars = "☆☆☆☆☆".split('');
+      for (let i = 0; i < Math.round(avg); i++) stars[i] = '★';
+      document.getElementById("average-stars").innerText = stars.join('');
+      document.getElementById("rating-value").innerText = `(${avg.toFixed(1)} / 5)`;
 
-    fetch('save_review.php', {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({ name, comment, rating: selectedRating })
-    }).then(() => {
-      document.getElementById("name").value = "";
-      document.getElementById("comment").value = "";
-      selectedRating = 0;
-      stars.forEach(s => s.classList.remove('active'));
-      loadReviews();
-    });
-  }
-
-  function loadReviews() {
-    fetch('reviews.json')
-      .then(res => res.json())
-      .then(data => {
-        const box = document.getElementById("reviews");
-        box.innerHTML = "";
-        data.reverse().forEach(r => {
-          box.innerHTML += `
-            <div class="review-box">
-              <div>
-                <img src="https://i.pravatar.cc/40?u=${r.name}" class="avatar" />
-                <span class="username">${r.name}</span>
-                <div class="date">${r.date}</div>
-              </div>
-              <div class="stars">${'★'.repeat(r.rating)}${'☆'.repeat(5 - r.rating)}</div>
-              <p>${r.comment}</p>
-              <div class="actions">
-                <span>Was this review helpful?</span>
-                <button>Yes</button>
-                <button>No</button>
-              </div>
-            </div>
-          `;
-        });
+      // update selected state
+      document.querySelectorAll(".rating-stars span").forEach((el, i) => {
+        el.classList.toggle("selected", i < userRating);
       });
-  }
+    }
 
-  window.onload = loadReviews;
-</script>
-
+    updateAverage();
+    loadComments();
+  </script>
 </body>
-</html>
+  </html>
