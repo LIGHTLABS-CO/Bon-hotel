@@ -62,6 +62,10 @@
       margin-bottom: 10px;
     }
 
+    .table-wrapper {
+      overflow-x: auto;
+    }
+
     table {
       width: 100%;
       min-width: 600px;
@@ -92,84 +96,6 @@
       color: #333;
     }
 
-    .star-rating {
-      margin: 30px 0 10px;
-      text-align: center;
-      font-size: 18px;
-      font-weight: 600;
-    }
-
-    .stars {
-      font-size: 28px;
-      color: gold;
-    }
-
-    .rating-stars {
-      text-align: center;
-      margin: 12px 0 20px;
-    }
-
-    .rating-stars span {
-      font-size: 34px;
-      color: #ccc;
-      margin: 0 4px;
-      cursor: pointer;
-      transition: color 0.3s;
-    }
-
-    .rating-stars span.selected,
-    .rating-stars span.rated {
-      color: gold;
-      cursor: default;
-    }
-
-    textarea {
-      width: 100%;
-      height: 80px;
-      margin: 10px 0;
-      padding: 10px;
-      font-size: 16px;
-      resize: vertical;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-    }
-
-    .btn-primary {
-      display: block;
-      width: 100%;
-      background: #003366;
-      color: white;
-      padding: 12px;
-      font-size: 16px;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: 600;
-      margin-top: 5px;
-    }
-
-    .comment-box {
-      background: #fff;
-      padding: 12px 16px;
-      border-radius: 8px;
-      margin: 10px 0;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-      border-left: 4px solid #003366;
-    }
-
-    #comment-list > div:nth-child(n+6) {
-      display: none;
-    }
-
-    #show-more {
-      display: block;
-      margin: 10px auto;
-      text-align: center;
-      color: #003366;
-      cursor: pointer;
-      font-weight: 500;
-    }
-
     #visitor-count {
       position: fixed;
       bottom: 10px;
@@ -180,12 +106,130 @@
       border-radius: 5px;
       font-size: 14px;
     }
+
+    .review-section {
+      margin-top: 40px;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .star-inputs {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .star-inputs span {
+      font-size: 34px;
+      cursor: pointer;
+      color: #ccc;
+      transition: color 0.3s;
+    }
+
+    .star-inputs span.selected {
+      color: gold;
+    }
+
+    .review-card {
+      background: white;
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin: 15px 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    .review-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .avatar {
+      width: 40px;
+      height: 40px;
+      background: #ccc;
+      border-radius: 50%;
+      margin-right: 10px;
+      flex-shrink: 0;
+    }
+
+    .review-meta {
+      flex-grow: 1;
+    }
+
+    .review-meta .name {
+      font-weight: 600;
+      font-size: 16px;
+    }
+
+    .review-meta .date {
+      font-size: 13px;
+      color: #666;
+    }
+
+    .review-stars {
+      color: gold;
+      font-size: 20px;
+      margin: 5px 0;
+    }
+
+    .review-text {
+      font-size: 15px;
+      color: #333;
+      line-height: 1.5;
+    }
+
+    .helpful {
+      font-size: 13px;
+      margin-top: 10px;
+      color: #555;
+    }
+
+    .helpful-buttons {
+      margin-top: 5px;
+    }
+
+    .helpful-buttons button {
+      padding: 6px 12px;
+      margin-right: 8px;
+      background: #f0f0f0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    textarea.review-input {
+      width: 100%;
+      height: 80px;
+      font-size: 15px;
+      padding: 10px;
+      margin-top: 10px;
+      resize: vertical;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    .btn-submit {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 18px;
+      font-size: 15px;
+      font-weight: 600;
+      background: #003366;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .review-stars span {
+      font-size: 20px;
+    }
   </style>
 </head>
 <body>
 
   <div class="slideshow">
-    <img src="img.jpeg" class="slide active" />
+    <img src="https://bonhotels.com/sites/default/files/styles/hero/public/hotels/images/Hyatti-Warri.jpg" class="slide active" />
     <img src="img1.jpeg" class="slide" />
     <img src="img2.jpeg" class="slide" />
     <img src="img3.jpeg" class="slide" />
@@ -196,24 +240,26 @@
     <h1>BON Hotel Hyatti Warri<br>Room Rates</h1>
     <div class="swipe-tip">👉 Swipe left/right to see full table 👈</div>
 
-    <table>
-      <thead>
-        <tr>
-          <th>Room Type</th>
-          <th>Best Available Rate</th>
-          <th>BONami Rate<br><small>(10% Off with Membership)</small></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>Studio Room</td><td>₦112,000.00</td><td>₦100,800.00</td></tr>
-        <tr><td>Classic Room</td><td>₦120,000.00</td><td>₦108,000.00</td></tr>
-        <tr><td>Deluxe Room</td><td>₦146,000.00</td><td>₦131,400.00</td></tr>
-        <tr><td>Royal Room</td><td>₦180,000.00</td><td>₦162,000.00</td></tr>
-        <tr><td>Executive Suite</td><td>₦260,000.00</td><td>₦234,000.00</td></tr>
-        <tr><td>Ambassador Suite</td><td>₦300,000.00</td><td>₦270,000.00</td></tr>
-        <tr><td>Self Catering Suite</td><td>₦300,000.00</td><td>₦270,000.00</td></tr>
-      </tbody>
-    </table>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Room Type</th>
+            <th>Best Available Rate</th>
+            <th>BONami Rate<br><small>(10% Off with Membership)</small></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Studio Room</td><td>₦112,000.00</td><td>₦100,800.00</td></tr>
+          <tr><td>Classic Room</td><td>₦120,000.00</td><td>₦108,000.00</td></tr>
+          <tr><td>Deluxe Room</td><td>₦146,000.00</td><td>₦131,400.00</td></tr>
+          <tr><td>Royal Room</td><td>₦180,000.00</td><td>₦162,000.00</td></tr>
+          <tr><td>Executive Suite</td><td>₦260,000.00</td><td>₦234,000.00</td></tr>
+          <tr><td>Ambassador Suite</td><td>₦300,000.00</td><td>₦270,000.00</td></tr>
+          <tr><td>Self Catering Suite</td><td>₦300,000.00</td><td>₦270,000.00</td></tr>
+        </tbody>
+      </table>
+    </div>
 
     <div class="note">
       Single Rooms include complimentary breakfast for 1 guest.<br>
@@ -221,24 +267,23 @@
       <strong>All room types include complimentary access to the pool and gym facilities.</strong>
     </div>
 
-    <div class="star-rating">
-      Overall Rating: <span class="stars" id="average-stars">★★★★☆</span> <span id="rating-value">(4.0 / 5)</span>
-    </div>
+    <div class="review-section">
+      <h3 style="text-align:center; color:#003366; font-weight:700;">What do you think about the website?</h3>
+      
+      <div class="star-inputs">
+        <span onclick="rate(1)">★</span>
+        <span onclick="rate(2)">★</span>
+        <span onclick="rate(3)">★</span>
+        <span onclick="rate(4)">★</span>
+        <span onclick="rate(5)">★</span>
+      </div>
 
-    <div class="rating-stars">
-      <p><strong>What do you think about the website?</strong></p>
-      <span onclick="rate(1)">★</span>
-      <span onclick="rate(2)">★</span>
-      <span onclick="rate(3)">★</span>
-      <span onclick="rate(4)">★</span>
-      <span onclick="rate(5)">★</span>
-    </div>
+      <textarea class="review-input" id="new-comment" placeholder="Write a review..."></textarea>
+      <button class="btn-submit" onclick="addComment()">Submit Review</button>
 
-    <h3 style="text-align:center; color:#003366;">Visitor Comments</h3>
-    <textarea id="new-comment" placeholder="Leave a comment..."></textarea>
-    <button class="btn-primary" onclick="addComment()">Post Comment</button>
-    <div id="comment-list"></div>
-    <div id="show-more" onclick="showMore()">Show older comments</div>
+      <div id="comment-list"></div>
+      <div id="show-more" onclick="showMore()" style="text-align:center; color:#003366; cursor:pointer; margin-top:10px;">Show older reviews</div>
+    </div>
 
     <div class="contact">
       Address: BON Hotel Hyatti Warri, Airport Road, Warri, Delta State, Nigeria<br>
@@ -281,24 +326,19 @@
     }
 
     function updateAverage() {
-      let ratings = JSON.parse(localStorage.getItem("ratings") || "[]");
-      let avg = ratings.length ? (ratings.reduce((a, b) => a + b) / ratings.length) : 0;
-      let stars = "☆☆☆☆☆".split('');
-      for (let i = 0; i < Math.round(avg); i++) stars[i] = '★';
-      document.getElementById("average-stars").innerText = stars.join('');
-      document.getElementById("rating-value").innerText = `(${avg.toFixed(1)} / 5)`;
-
-      document.querySelectorAll(".rating-stars span").forEach((el, i) => {
-        el.classList.toggle("selected", i < parseInt(localStorage.getItem("userRating")));
-        if (sessionStorage.getItem("rated")) el.classList.add("rated");
+      let userRating = parseInt(localStorage.getItem("userRating"));
+      document.querySelectorAll(".star-inputs span").forEach((el, i) => {
+        el.classList.toggle("selected", i < userRating);
       });
     }
 
     function addComment() {
       const text = document.getElementById("new-comment").value.trim();
       if (!text) return;
+      const name = "Visitor";
+      const date = new Date().toLocaleDateString();
       let stored = JSON.parse(localStorage.getItem("comments") || "[]");
-      stored.push({ text, ts: Date.now() });
+      stored.push({ text, name, date, rating: parseInt(localStorage.getItem("userRating") || 4) });
       localStorage.setItem("comments", JSON.stringify(stored));
       document.getElementById("new-comment").value = "";
       loadComments();
@@ -307,13 +347,28 @@
     function loadComments() {
       let stored = JSON.parse(localStorage.getItem("comments") || "[]");
       const list = document.getElementById("comment-list");
-      list.innerHTML = stored.map((c, i) =>
-        `<div class="comment-box" style="display:${i < 5 ? 'block' : 'none'}"><strong>Visitor:</strong><br>${c.text}</div>`
-      ).join('');
+      list.innerHTML = stored.map((c, i) => `
+        <div class="review-card" style="display:${i < 5 ? 'block' : 'none'}">
+          <div class="review-header">
+            <div class="avatar"></div>
+            <div class="review-meta">
+              <div class="name">${c.name}</div>
+              <div class="date">${c.date}</div>
+            </div>
+          </div>
+          <div class="review-stars">${"★".repeat(c.rating)}<span style="color:#ccc">${"☆".repeat(5 - c.rating)}</span></div>
+          <div class="review-text">${c.text}</div>
+          <div class="helpful">0 people found this helpful</div>
+          <div class="helpful-buttons">
+            <button>Yes</button>
+            <button>No</button>
+          </div>
+        </div>
+      `).join('');
     }
 
     function showMore() {
-      document.querySelectorAll(".comment-box").forEach(e => e.style.display = "block");
+      document.querySelectorAll(".review-card").forEach(e => e.style.display = "block");
       document.getElementById("show-more").style.display = "none";
     }
 
@@ -321,4 +376,4 @@
     loadComments();
   </script>
 </body>
-  </html>
+          </html>
