@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,109 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>BON Hotel Hyatti Warri</title>
   <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: #121212;
-      color: #eee;
-    }
-    header {
-      background: #1c1c1c;
-      color: #fff;
-      padding: 15px;
-      text-align: center;
-      position: relative;
-    }
-    .designer-tag {
-      position: absolute;
-      top: 10px;
-      left: 15px;
-      font-size: 12px;
-      color: #aaa;
-    }
-    section {
-      padding: 30px 20px;
-      max-width: 960px;
-      margin: auto;
-    }
-    h1, h2 {
-      font-weight: bold;
-      color: #fff;
-    }
-    p {
-      color: #ccc;
-      font-size: 15px;
-      line-height: 1.6;
-    }
-    img {
-      max-width: 100%;
-      border-radius: 8px;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 30px;
-    }
-    th, td {
-      border: 1px solid #333;
-      padding: 12px;
-      text-align: left;
-    }
-    th {
-      background: #222;
-      color: #fff;
-    }
-    td {
-      background: #1a1a1a;
-      color: #ddd;
-    }
-    .highlight-note {
-      background: #1a1a1a;
-      padding: 20px;
-      margin-top: 20px;
-      border-radius: 8px;
-      text-align: center;
-      font-size: 14px;
-      color: #eee;
-    }
-    .review-form {
-      background: #1a1a1a;
-      padding: 20px;
-      border-radius: 8px;
-      max-width: 600px;
-      margin: 40px auto;
-    }
-    .review-form input, .review-form textarea {
-      width: 100%;
-      padding: 10px;
-      margin-top: 10px;
-      border: 1px solid #333;
-      background: #121212;
-      color: #fff;
-      border-radius: 5px;
-    }
-    .review-form button {
-      background: #333;
-      color: #fff;
-      padding: 10px 25px;
-      border: none;
-      border-radius: 5px;
-      margin-top: 15px;
-      cursor: pointer;
-    }
-    footer {
-      background: #1c1c1c;
-      color: #ccc;
-      text-align: center;
-      padding: 30px 20px;
-    }
-    iframe.map {
-      width: 100%;
-      height: 300px;
-      border: none;
-      margin-top: 20px;
-      border-radius: 8px;
-    }
+    body { margin: 0; font-family: 'Segoe UI', sans-serif; background: #121212; color: #eee; }
+    header { background: #1c1c1c; color: #fff; padding: 15px; text-align: center; position: relative; }
+    .designer-tag { position: absolute; top: 10px; left: 15px; font-size: 12px; color: #aaa; }
+    section { padding: 30px 20px; max-width: 960px; margin: auto; }
+    h1, h2 { font-weight: bold; color: #fff; }
+    p { color: #ccc; font-size: 15px; line-height: 1.6; }
+    img { max-width: 100%; border-radius: 8px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 30px; }
+    th, td { border: 1px solid #333; padding: 12px; text-align: left; }
+    th { background: #222; color: #fff; }
+    td { background: #1a1a1a; color: #ddd; }
+    .highlight-note { background: #1a1a1a; padding: 20px; margin-top: 20px; border-radius: 8px; text-align: center; font-size: 14px; color: #eee; }
+    .room-block { margin-top: 40px; }
+    .carousel { position: relative; overflow: hidden; }
+    .carousel img { width: 100%; display: none; }
+    .carousel img.active { display: block; }
+    .dots { text-align: center; margin-top: 10px; }
+    .dot { height: 10px; width: 10px; background: #777; border-radius: 50%; display: inline-block; margin: 0 4px; cursor: pointer; }
+    .dot.active { background: #fff; }
+    .review-form { background: #1a1a1a; padding: 20px; border-radius: 8px; max-width: 600px; margin: 40px auto; }
+    .review-form input, .review-form textarea { width: 100%; padding: 10px; margin-top: 10px; border: 1px solid #333; background: #121212; color: #fff; border-radius: 5px; }
+    .review-form button { background: #333; color: #fff; padding: 10px 25px; border: none; border-radius: 5px; margin-top: 15px; cursor: pointer; }
+    footer { background: #1c1c1c; color: #ccc; text-align: center; padding: 30px 20px; }
+    iframe.map { width: 100%; height: 300px; border: none; margin-top: 20px; border-radius: 8px; }
   </style>
 </head>
 <body>
@@ -170,6 +90,68 @@
   </div>
 </section>
 
+<section class="room-block">
+  <h2>Our Rooms</h2>
+  <h3>Standard Room (Studio)</h3>
+  <img src="studio.jpg" alt="Standard Room">
+
+  <div style="text-align:center; margin: 30px 0;">
+    <script async="async" data-cfasync="false" src="//pl27254388.profitableratecpm.com/ce1846697728c667ed35bf013f823ae7/invoke.js"></script>
+    <div id="container-ce1846697728c667ed35bf013f823ae7"></div>
+  </div>
+
+  <h3>Classic Room</h3>
+  <img src="classic.jpg" alt="Classic Room">
+
+  <h3>Deluxe Room</h3>
+  <div class="carousel">
+    <img class="active" src="deluxe.jpg" alt="Deluxe 1">
+    <img src="deluxe1.jpg" alt="Deluxe 2">
+  </div>
+
+  <h3>Royal Room</h3>
+  <img src="royal.jpg" alt="Royal Room">
+
+  <h3>Executive Suite</h3>
+  <div class="carousel">
+    <img class="active" src="executive.jpg" alt="Executive 1">
+    <img src="executive1.jpg" alt="Executive 2">
+  </div>
+
+  <h3>Ambassadorial Suite</h3>
+  <div class="carousel">
+    <img class="active" src="ambassador.jpg" alt="Ambassadorial 1">
+    <img src="ambassador1.jpg" alt="Ambassadorial 2">
+  </div>
+
+  <h3>Self-Catering Suite</h3>
+  <div class="carousel">
+    <img class="active" src="self.jpg" alt="Self 1">
+    <img src="self1.jpg" alt="Self 2">
+    <img src="self2.jpg" alt="Self 3">
+  </div>
+</section>
+
+<section class="room-block">
+  <h2>Why Guests Love Us</h2>
+
+  <h3>Our Signature Indoor Bar</h3>
+  <img src="img1.jpeg" alt="Bar">
+  <p>A sophisticated bar atmosphere, exclusively for BON Hotel guests. Experience luxury leisure where it matters.</p>
+
+  <h3>Crystal-Clear Swimming Pool</h3>
+  <img src="img2.jpeg" alt="Pool">
+  <p>Dive into our serene, well-maintained pool — reserved for relaxation, fitness, and pure pleasure.</p>
+
+  <h3>Elegant Front Desk</h3>
+  <img src="img3.jpeg" alt="Front Desk">
+  <p>Our welcoming reception is available 24/7 to attend to all your needs with professionalism and warmth.</p>
+
+  <h3>Luxury Room Comfort</h3>
+  <img src="img.jpeg" alt="Comfort">
+  <p>Rest in premium comfort tailored with style, elegance, and privacy — unmatched by any local alternative.</p>
+</section>
+
 <section class="review-form">
   <h2>Leave a Review</h2>
   <form action="save_review.php" method="POST">
@@ -194,4 +176,4 @@
 <iframe class="map" src="https://www.google.com/maps?q=2%20Omamor%20Street%2C%20Ekpan%20Warri%2C%20Delta%2C%20Nigeria&output=embed"></iframe>
 
 </body>
-</html>
+                                                           </html>
