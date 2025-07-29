@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>BON Hotel Hyatti Warri</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
   <style>
     body {
       background-color: #111;
@@ -13,182 +14,136 @@
       padding: 0;
       text-align: center;
     }
-    h1, h2, h3 {
-      color: #fff;
-    }
-    .intro {
-      padding: 20px;
-    }
-    .intro img {
-      width: 90%;
-      max-width: 400px;
-      border-radius: 10px;
-      margin-top: 10px;
-    }
-    .rates {
-      background: #1b1b1b;
-      padding: 20px;
-      margin: 20px;
-      border-radius: 10px;
-      display: inline-block;
-    }
-    .section-title {
-      font-size: 1.5em;
+    h1, h2 {
+      font-weight: bold;
       margin-top: 30px;
-      border-bottom: 2px solid #444;
-      display: inline-block;
-      padding-bottom: 5px;
     }
-    .room {
-      background-color: #1b1b1b;
-      border-radius: 10px;
-      padding: 15px;
+    .room-section {
       margin: 20px auto;
-      width: 90%;
-      max-width: 500px;
-      box-shadow: 0 0 10px #000;
+      max-width: 480px;
+      background-color: #222;
+      padding: 20px;
+      border-radius: 12px;
     }
-    .room img {
+    .room-section img {
       width: 100%;
+      height: auto;
       border-radius: 10px;
     }
-    .carousel {
-      position: relative;
+    .swiper {
+      width: 100%;
     }
-    .carousel img {
-      display: none;
+    .swiper-pagination-bullet {
+      background-color: white;
     }
-    .carousel img.active {
+    iframe {
       display: block;
+      margin: 20px auto;
     }
-    .carousel .dots {
-      margin-top: 10px;
+    .contact-info {
+      background-color: #000;
+      padding: 30px 15px;
+      font-size: 16px;
+      line-height: 1.8;
     }
-    .carousel .dot {
-      height: 10px;
-      width: 10px;
-      margin: 0 3px;
-      background-color: #bbb;
-      border-radius: 50%;
+    .contact-info strong {
       display: inline-block;
-      cursor: pointer;
-    }
-    .dot.active {
-      background-color: #fff;
-    }
-    .ad-unit {
-      margin: 40px auto;
-      text-align: center;
-    }
-    .contact, .footer {
-      background-color: #1b1b1b;
-      padding: 20px;
-      margin-top: 30px;
-      border-top: 2px solid #333;
-    }
-    .label {
-      font-size: 12px;
-      color: #777;
+      width: 90px;
+      text-align: left;
     }
   </style>
 </head>
 <body>
 
-  <div class="intro">
-    <h1>Welcome to BON Hotel Hyatti Warri</h1>
-    <p>Enjoy luxury redefined at BON Hotel Hyatti Warri. Every stay includes complimentary access to our state-of-the-art gym, serene swimming pool, and modern restaurant. Located at the heart of Warri, Delta State.</p>
-    <img src="img4.jpeg" alt="BON Hotel Hyatti Warri" />
+  <h1>Welcome to BON Hotel Hyatti Warri</h1>
+  <p>Enjoy luxury redefined at BON Hotel Hyatti Warri.<br>Every stay includes complimentary access to our state-of-the-art gym, serene swimming pool, and modern restaurant. Located at the heart of Warri, Delta State.</p>
+  <img src="img4.jpeg" alt="Hotel Image" style="width:90%; max-width:400px; border-radius:10px; margin:20px auto;"/>
+
+  <h2>Room Rates</h2>
+  <div style="background:#222; display:inline-block; padding:20px; border-radius:12px; text-align:left;">
+    <p>Studio Room: ₦112,000 (BONami ₦100,800)</p>
+    <p>Classic Room: ₦120,000 (BONami ₦108,000)</p>
+    <p>Deluxe Room: ₦146,000 (BONami ₦131,400)</p>
+    <p>Royal Room: ₦180,000 (BONami ₦162,000)</p>
+    <p>Executive Suite: ₦260,000 (BONami ₦234,000)</p>
+    <p>Ambassadorial Suite: ₦300,000 (BONami ₦270,000)</p>
+    <p>Self Catering Suite: ₦300,000 (BONami ₦270,000)</p>
+    <small><i>Note: BONami members get 10% off all room types. Purchase the BONami card for ₦20,000 (valid 1 year, usable at all BON Hotels worldwide).</i></small>
   </div>
 
-  <div class="rates">
-    <h2>Room Rates</h2>
-    <p><strong>Studio Room:</strong> ₦112,000 (BONami ₦100,800)</p>
-    <p><strong>Classic Room:</strong> ₦120,000 (BONami ₦108,000)</p>
-    <p><strong>Deluxe Room:</strong> ₦146,000 (BONami ₦131,400)</p>
-    <p><strong>Royal Room:</strong> ₦180,000 (BONami ₦162,000)</p>
-    <p><strong>Executive Suite:</strong> ₦260,000 (BONami ₦234,000)</p>
-    <p><strong>Ambassadorial Suite:</strong> ₦300,000 (BONami ₦270,000)</p>
-    <p><strong>Self Catering Suite:</strong> ₦300,000 (BONami ₦270,000)</p>
-    <small><em>Note: BONami members get 10% off all room types. Purchase the BONami card for ₦20,000 (valid 1 year, usable at all BON Hotels worldwide).</em></small>
-  </div>
+  <h2>🏨 Single Rooms</h2>
 
-  <h2 class="section-title">🛏️ Single Rooms</h2>
-
-  <div class="room">
+  <div class="room-section">
     <h3>Studio Room</h3>
-    <img src="studio.jpg" alt="Studio Room">
+    <img src="studio.jpg" alt="Studio Room"/>
     <p>Queen-sized bed, perfect for business and solo travelers. Complimentary breakfast included.</p>
   </div>
 
-  <div class="room">
+  <div class="room-section">
     <h3>Classic Room</h3>
-    <img src="classic.jpg" alt="Classic Room">
-    <p>Spacious King-sized bed for maximum comfort. Designed for convenience and rest.</p>
+    <img src="classic.jpg" alt="Classic Room"/>
+    <p>King-sized bed. Ideal for comfort and elegance. Breakfast included.</p>
   </div>
 
-  <div class="room">
+  <div class="room-section">
     <h3>Deluxe Room</h3>
-    <div class="carousel" id="deluxe-carousel">
-      <img class="active" src="deluxe.jpg" alt="Deluxe Room">
-      <img src="deluxe1.jpg" alt="Deluxe Room View 2">
-      <div class="dots">
-        <span class="dot active" onclick="changeSlide(0, 'deluxe-carousel')"></span>
-        <span class="dot" onclick="changeSlide(1, 'deluxe-carousel')"></span>
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="deluxe.jpg" alt="Deluxe Room"/></div>
+        <div class="swiper-slide"><img src="deluxe1.jpg" alt="Deluxe Room 1"/></div>
       </div>
+      <div class="swiper-pagination"></div>
     </div>
     <p>Elegant King-sized bed with sofa area and workspace. Comfort meets sophistication.</p>
   </div>
 
-  <div class="room">
+  <div class="room-section">
     <h3>Royal Room</h3>
-    <img src="royal.jpg" alt="Royal Room">
+    <img src="royal.jpg" alt="Royal Room"/>
     <p>Premium interior for luxury guests. Plush bedding, lighting, and full amenities.</p>
   </div>
 
-  <h2 class="section-title">🏨 Suites</h2>
+  <h2>🏩 Suites</h2>
 
-  <div class="room">
+  <div class="room-section">
     <h3>Executive Suite</h3>
-    <div class="carousel" id="executive-carousel">
-      <img class="active" src="executive.jpg" alt="Executive Suite">
-      <img src="executive1.jpg" alt="Executive Suite View 2">
-      <div class="dots">
-        <span class="dot active" onclick="changeSlide(0, 'executive-carousel')"></span>
-        <span class="dot" onclick="changeSlide(1, 'executive-carousel')"></span>
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="executive.jpg" alt="Executive Suite"/></div>
+        <div class="swiper-slide"><img src="executive1.jpg" alt="Executive Suite 1"/></div>
       </div>
-    </div>
-    <p>Designed for business leaders. Elegant workspace, luxury bedding, and full amenities.</p>
-  </div>
-
-  <div class="room">
-    <h3>Ambassadorial Suite</h3>
-    <div class="carousel" id="ambassador-carousel">
-      <img class="active" src="ambassador.jpg" alt="Ambassador Suite">
-      <img src="ambassador1.jpg" alt="Ambassador Suite View 2">
-      <div class="dots">
-        <span class="dot active" onclick="changeSlide(0, 'ambassador-carousel')"></span>
-        <span class="dot" onclick="changeSlide(1, 'ambassador-carousel')"></span>
-      </div>
+      <div class="swiper-pagination"></div>
     </div>
     <p>Exceptional in size and style. Two living areas, luxury workspace, and top-tier privacy.</p>
   </div>
 
-  <div class="room">
-    <h3>Self Catering Suite</h3>
-    <div class="carousel" id="self-carousel">
-      <img class="active" src="self.jpg" alt="Self-Catering Suite">
-      <img src="self1.jpg" alt="Self-Catering Suite View 2">
-      <img src="self2.jpg" alt="Self-Catering Suite View 3">
-      <div class="dots">
-        <span class="dot active" onclick="changeSlide(0, 'self-carousel')"></span>
-        <span class="dot" onclick="changeSlide(1, 'self-carousel')"></span>
-        <span class="dot" onclick="changeSlide(2, 'self-carousel')"></span>
+  <div class="room-section">
+    <h3>Ambassadorial Suite</h3>
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="ambassador.jpg" alt="Ambassadorial Suite"/></div>
+        <div class="swiper-slide"><img src="ambassador1.jpg" alt="Ambassadorial Suite 1"/></div>
       </div>
+      <div class="swiper-pagination"></div>
+    </div>
+    <p>Top-class suite with executive facilities. Impressive layout and unmatched service.</p>
+  </div>
+
+  <div class="room-section">
+    <h3>Self Catering Suite</h3>
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="self.jpg" alt="Self-Catering Suite"/></div>
+        <div class="swiper-slide"><img src="self1.jpg" alt="Self-Catering Suite 1"/></div>
+        <div class="swiper-slide"><img src="self2.jpg" alt="Self-Catering Suite 2"/></div>
+      </div>
+      <div class="swiper-pagination"></div>
     </div>
     <p>Ideal for long-stay guests. Comes with a fully equipped kitchen and dining space.</p>
   </div>
 
-  <div class="ad-unit">
+  <!-- ADSTERAA AD PLACEMENT -->
+  <div style="margin: 30px 0;">
     <script type="text/javascript">
       atOptions = {
         'key' : '6cd6931c37fc427ed210ce5fd3ce7f00',
@@ -201,43 +156,25 @@
     <script type="text/javascript" src="//www.highperformanceformat.com/6cd6931c37fc427ed210ce5fd3ce7f00/invoke.js"></script>
   </div>
 
-  <div class="contact">
+  <div class="contact-info">
     <h2>Hotel Contact Info</h2>
     <p><strong>Phone:</strong> +234 (0) 703 900 6667</p>
     <p><strong>WhatsApp:</strong> +234 915 996 7494</p>
     <p><strong>Email:</strong> reservations@bonhotelhyatti.com</p>
     <p><strong>Address:</strong> 2 Omamor Street, Ekpan Warri, Delta, Nigeria</p>
-
-    <h3>Web Developer Contact</h3>
-    <p>Email: walkernight365@gmail.com</p>
-    <p>WhatsApp: 08035294562</p>
-
-    <h3>Bank Details</h3>
-    <p><strong>Account Name:</strong> Hyatt Pan Hotel Limited</p>
-    <p><strong>Bank:</strong> First Bank of Nigeria</p>
-    <p><strong>Account Number:</strong> 2035072113</p>
-    <p><strong>Sort Code:</strong> 011150000</p>
-    <p><strong>Branch:</strong> First Bank Nigeria Limited, Ekpan Branch, Main Complex, NPA Road, Ekpan</p>
   </div>
 
-  <div class="footer">
-    <span class="label">Design by Light Labs Studio</span>
-  </div>
-
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
   <script>
-    function changeSlide(index, carouselId) {
-      const carousel = document.getElementById(carouselId);
-      const images = carousel.querySelectorAll("img");
-      const dots = carousel.querySelectorAll(".dot");
-
-      images.forEach((img, i) => {
-        img.classList.toggle("active", i === index);
+    document.querySelectorAll('.swiper').forEach(swiperContainer => {
+      new Swiper(swiperContainer, {
+        loop: true,
+        pagination: {
+          el: swiperContainer.querySelector('.swiper-pagination'),
+          clickable: true,
+        },
       });
-
-      dots.forEach((dot, i) => {
-        dot.classList.toggle("active", i === index);
-      });
-    }
+    });
   </script>
 </body>
-      </html>
+                                    </html>
