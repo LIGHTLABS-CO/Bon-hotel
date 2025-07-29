@@ -6,28 +6,53 @@
   <title>BON Hotel Hyatti Warri</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
   <style>
+    * {
+      box-sizing: border-box;
+    }
     body {
-      background-color: #111;
-      color: #fff;
-      font-family: Arial, sans-serif;
       margin: 0;
-      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #111;
+      color: #fff;
+    }
+    header {
+      background: #000;
+      padding: 10px 20px;
       text-align: center;
+      font-size: 14px;
+      font-weight: bold;
+      color: #bbb;
+    }
+    .hero {
+      width: 100%;
+      max-height: 400px;
+      overflow: hidden;
+    }
+    .hero img {
+      width: 100%;
+      height: auto;
+      display: block;
     }
     h1, h2 {
+      text-align: center;
       font-weight: bold;
       margin-top: 30px;
     }
+    .section-title {
+      margin: 40px 0 10px;
+      font-size: 22px;
+      text-align: center;
+      font-weight: bold;
+    }
     .room-section {
       margin: 20px auto;
-      max-width: 480px;
-      background-color: #222;
+      max-width: 600px;
+      background: #222;
       padding: 20px;
       border-radius: 12px;
     }
     .room-section img {
       width: 100%;
-      height: auto;
       border-radius: 10px;
     }
     .swiper {
@@ -38,108 +63,114 @@
     }
     iframe {
       display: block;
-      margin: 20px auto;
+      margin: 30px auto;
     }
-    .contact-info {
+    .contact-info, .developer-info {
       background-color: #000;
       padding: 30px 15px;
       font-size: 16px;
       line-height: 1.8;
     }
-    .contact-info strong {
+    .contact-info strong, .developer-info strong {
       display: inline-block;
-      width: 90px;
+      width: 110px;
       text-align: left;
     }
-    table {
-      margin: 0 auto 20px;
-      border-collapse: collapse;
+    .price-table {
+      margin: 20px auto;
       width: 90%;
       max-width: 600px;
-      background-color: #222;
+      border-collapse: collapse;
+      background: #222;
       border-radius: 12px;
       overflow: hidden;
     }
-    th, td {
-      padding: 12px 15px;
+    .price-table th, .price-table td {
+      padding: 10px;
       text-align: center;
       border-bottom: 1px solid #444;
     }
-    th {
-      background-color: #333;
-      font-weight: bold;
-    }
-    .highlight-section {
-      background-color: #1b1b1b;
-      margin: 30px auto;
-      padding: 20px;
-      max-width: 480px;
-      border-radius: 12px;
-    }
-    .highlight-section img {
-      width: 100%;
-      border-radius: 10px;
-      margin-bottom: 10px;
-    }
-    .top-tag {
-      background-color: #000;
-      color: #888;
-      padding: 10px;
-      font-size: 14px;
-      text-align: center;
-    }
-    .web-developer {
-      background-color: #111;
-      padding: 20px;
-      font-size: 15px;
-      color: #ccc;
-    }
-    .web-developer p {
-      margin: 5px 0;
+    .price-table th {
+      background: #333;
+      color: #fff;
     }
   </style>
 </head>
 <body>
 
-  <div class="top-tag">Design by Light Labs Studio</div>
+  <header>Design by Lighthouse • For issues, contact: walkernight365@gmail.com or WhatsApp 08035294562</header>
+
+  <div class="hero">
+    <img src="img4.jpeg" alt="BON Hotel Hyatti Warri"/>
+  </div>
 
   <h1>Welcome to BON Hotel Hyatti Warri</h1>
-  <p>Enjoy luxury redefined at BON Hotel Hyatti Warri.<br>Every stay includes complimentary access to our state-of-the-art gym, serene swimming pool, and modern restaurant. Located at the heart of Warri, Delta State.</p>
-  <img src="img4.jpeg" alt="Hotel Image" style="width:90%; max-width:400px; border-radius:10px; margin:20px auto;"/>
+  <p style="text-align:center; max-width:600px; margin:0 auto 40px;">Enjoy luxury redefined in the heart of Warri. Every stay includes access to our serene swimming pool, fitness centre, and exquisite restaurant.</p>
 
   <h2>Room Rates</h2>
-  <table>
-    <thead>
-      <tr>
-        <th>Room Description</th>
-        <th>Room Type</th>
-        <th>Best Available Rate</th>
-        <th>BONami Rate (10% off)</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr><td>Single Room</td><td>Studio Room</td><td>₦112,000</td><td>₦100,800</td></tr>
-      <tr><td>Single Room</td><td>Classic Room</td><td>₦120,000</td><td>₦108,000</td></tr>
-      <tr><td>Single Room</td><td>Deluxe Room</td><td>₦146,000</td><td>₦131,400</td></tr>
-      <tr><td>Single Room</td><td>Royal Room</td><td>₦180,000</td><td>₦162,000</td></tr>
-      <tr><td>Double Room</td><td>Executive Suite</td><td>₦260,000</td><td>₦234,000</td></tr>
-      <tr><td>Double Room</td><td>Ambassador Suite</td><td>₦300,000</td><td>₦270,000</td></tr>
-      <tr><td>Double Room</td><td>Self Catering Suite</td><td>₦300,000</td><td>₦270,000</td></tr>
-    </tbody>
+  <table class="price-table">
+    <tr>
+      <th>Room Description</th>
+      <th>Room Type</th>
+      <th>Best Rate</th>
+      <th>BONami Rate</th>
+    </tr>
+    <tr>
+      <td>Single Room</td>
+      <td>Studio Room</td>
+      <td>₦112,000</td>
+      <td>₦100,800</td>
+    </tr>
+    <tr>
+      <td>Single Room</td>
+      <td>Classic Room</td>
+      <td>₦120,000</td>
+      <td>₦108,000</td>
+    </tr>
+    <tr>
+      <td>Single Room</td>
+      <td>Deluxe Room</td>
+      <td>₦146,000</td>
+      <td>₦131,400</td>
+    </tr>
+    <tr>
+      <td>Single Room</td>
+      <td>Royal Room</td>
+      <td>₦180,000</td>
+      <td>₦162,000</td>
+    </tr>
+    <tr>
+      <td>Double Room</td>
+      <td>Executive Suite</td>
+      <td>₦260,000</td>
+      <td>₦234,000</td>
+    </tr>
+    <tr>
+      <td>Double Room</td>
+      <td>Ambassadorial Suite</td>
+      <td>₦300,000</td>
+      <td>₦270,000</td>
+    </tr>
+    <tr>
+      <td>Double Room</td>
+      <td>Self Catering Suite</td>
+      <td>₦300,000</td>
+      <td>₦270,000</td>
+    </tr>
   </table>
 
-  <h2>🏨 Single Rooms</h2>
+  <div class="section-title">Single Rooms</div>
 
   <div class="room-section">
     <h3>Studio Room</h3>
     <img src="studio.jpg" alt="Studio Room"/>
-    <p>Queen-sized bed, perfect for business and solo travelers. Complimentary breakfast included.</p>
+    <p>Comfortably suited for business and solo travelers. Comes with a queen-sized bed and 1 complimentary breakfast.</p>
   </div>
 
   <div class="room-section">
     <h3>Classic Room</h3>
     <img src="classic.jpg" alt="Classic Room"/>
-    <p>King-sized bed. Ideal for comfort and elegance. Breakfast included.</p>
+    <p>Spacious King-sized setup with elegant interiors. Ideal for short and medium stays with breakfast inclusive.</p>
   </div>
 
   <div class="room-section">
@@ -151,16 +182,16 @@
       </div>
       <div class="swiper-pagination"></div>
     </div>
-    <p>Elegant King-sized bed with sofa area and workspace. Comfort meets sophistication.</p>
+    <p>Elegant King-sized bed with sofa area and workspace. A fine blend of comfort, space, and warmth.</p>
   </div>
 
   <div class="room-section">
     <h3>Royal Room</h3>
     <img src="royal.jpg" alt="Royal Room"/>
-    <p>Premium interior for luxury guests. Plush bedding, lighting, and full amenities.</p>
+    <p>Premium interior for guests seeking extra luxury. Enhanced lighting, lush finishings, and full amenities.</p>
   </div>
 
-  <h2>🏩 Suites</h2>
+  <div class="section-title">Suites</div>
 
   <div class="room-section">
     <h3>Executive Suite</h3>
@@ -171,7 +202,7 @@
       </div>
       <div class="swiper-pagination"></div>
     </div>
-    <p>Exceptional in size and style. Two living areas, luxury workspace, and top-tier privacy.</p>
+    <p>Vast and private. Two living areas, premium bed, full desk, and ideal for long-stay business travelers or families.</p>
   </div>
 
   <div class="room-section">
@@ -183,24 +214,50 @@
       </div>
       <div class="swiper-pagination"></div>
     </div>
-    <p>Top-class suite with executive facilities. Impressive layout and unmatched service.</p>
+    <p>The highest tier for luxury-seeking guests. A presidential atmosphere with top-tier privacy and facilities.</p>
   </div>
 
   <div class="room-section">
-    <h3>Self Catering Suite</h3>
+    <h3>Self-Catering Suite</h3>
     <div class="swiper">
       <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="self.jpg" alt="Self-Catering Suite"/></div>
-        <div class="swiper-slide"><img src="self1.jpg" alt="Self-Catering Suite 1"/></div>
-        <div class="swiper-slide"><img src="self2.jpg" alt="Self-Catering Suite 2"/></div>
+        <div class="swiper-slide"><img src="self.jpg" alt="Self-Catering"/></div>
+        <div class="swiper-slide"><img src="self1.jpg" alt="Self-Catering 1"/></div>
+        <div class="swiper-slide"><img src="self2.jpg" alt="Self-Catering 2"/></div>
       </div>
       <div class="swiper-pagination"></div>
     </div>
-    <p>Ideal for long-stay guests. Comes with a fully equipped kitchen and dining space.</p>
+    <p>Perfect for long-term stays or families. Includes a fully equipped kitchen, dining space, and homely layout.</p>
   </div>
 
-  <!-- Ad Placement -->
-  <div style="margin: 30px 0;">
+  <div class="section-title">Featured Highlights</div>
+
+  <div class="room-section">
+    <h3>Front Desk</h3>
+    <img src="img3.jpeg" alt="Front Desk"/>
+    <p>Step into excellence. Our reception is open 24/7 with top-tier hospitality and welcoming staff to assist every guest.</p>
+  </div>
+
+  <div class="room-section">
+    <h3>Indoor Bar</h3>
+    <img src="img1.jpeg" alt="Bar"/>
+    <p>Enjoy crafted cocktails, fine wines and a lively ambiance. A perfect place to unwind and socialize in style.</p>
+  </div>
+
+  <div class="room-section">
+    <h3>Swimming Pool</h3>
+    <img src="img2.jpeg" alt="Pool"/>
+    <p>Crystal clear and serene pool area. Relax under the open sky or refresh after a productive day in Warri.</p>
+  </div>
+
+  <div class="room-section">
+    <h3>Room Comfort</h3>
+    <img src="img.jpeg" alt="Comfort"/>
+    <p>Every room is designed for relaxation with plush bedding, modern lighting, and flawless cleanliness.</p>
+  </div>
+
+  <!-- ADSTERAA AD PLACEMENT -->
+  <div style="margin: 40px auto; text-align:center;">
     <script type="text/javascript">
       atOptions = {
         'key' : '6cd6931c37fc427ed210ce5fd3ce7f00',
@@ -213,27 +270,6 @@
     <script type="text/javascript" src="//www.highperformanceformat.com/6cd6931c37fc427ed210ce5fd3ce7f00/invoke.js"></script>
   </div>
 
-  <!-- Hype Promo Sections -->
-  <div class="highlight-section">
-    <img src="img3.jpeg" alt="Front Desk"/>
-    <p>Experience premium service from arrival to checkout at our sophisticated front desk. Elegant, warm reception to welcome every guest.</p>
-  </div>
-
-  <div class="highlight-section">
-    <img src="img1.jpeg" alt="Indoor Bar"/>
-    <p>Relax at our exclusive indoor bar with a wide selection of cocktails and spirits. Perfect for socializing or unwinding privately.</p>
-  </div>
-
-  <div class="highlight-section">
-    <img src="img2.jpeg" alt="Pool"/>
-    <p>Our serene pool area offers tranquility and freshness. Ideal for morning swims or peaceful sunbathing in a luxurious setting.</p>
-  </div>
-
-  <div class="highlight-section">
-    <img src="img.jpeg" alt="Comfortable Room"/>
-    <p>Every room is built for ultimate comfort with luxurious bedding and stylish décor. Rest and recharge in total relaxation.</p>
-  </div>
-
   <div class="contact-info">
     <h2>Hotel Contact Info</h2>
     <p><strong>Phone:</strong> +234 (0) 703 900 6667</p>
@@ -242,11 +278,10 @@
     <p><strong>Address:</strong> 2 Omamor Street, Ekpan Warri, Delta, Nigeria</p>
   </div>
 
-  <div class="web-developer">
-    <p><strong>Need help or found an issue?</strong></p>
-    <p>Contact the Web Developer:</p>
-    <p>Email: walkernight365@gmail.com</p>
-    <p>WhatsApp: 08035294562</p>
+  <div class="developer-info">
+    <h2>Web Developer Support</h2>
+    <p><strong>Email:</strong> walkernight365@gmail.com</p>
+    <p><strong>WhatsApp:</strong> 08035294562</p>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
@@ -262,4 +297,4 @@
     });
   </script>
 </body>
-  </html>
+    </html>
