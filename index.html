@@ -2,47 +2,112 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BON Hotel Hyatti Warri</title>
   <style>
-    body { margin: 0; font-family: 'Segoe UI', sans-serif; background: #111; color: #f0f0f0; }
-    header { background: #191919; padding: 20px; text-align: center; position: relative; }
-    .designer-label { position: absolute; top: 10px; left: 15px; color: #888; font-size: 12px; }
-    h1, h2, h3 { color: #fff; font-weight: bold; }
-    section { max-width: 960px; margin: auto; padding: 40px 20px; }
-    p { color: #ccc; line-height: 1.6; font-size: 15px; }
-    img { width: 100%; border-radius: 10px; margin: 10px 0; }
-    table { width: 100%; margin-top: 20px; border-collapse: collapse; }
-    th, td { padding: 12px; text-align: left; border: 1px solid #333; }
-    th { background: #222; color: #fff; }
-    td { background: #181818; }
-    .highlight-box { background: #1b1b1b; padding: 20px; border-radius: 10px; margin-top: 30px; color: #eee; }
-    .carousel { position: relative; overflow: hidden; }
-    .carousel img { display: none; width: 100%; border-radius: 10px; }
-    .carousel img.active { display: block; }
-    .dots { text-align: center; margin-top: 10px; }
-    .dot { height: 10px; width: 10px; background: #555; border-radius: 50%; display: inline-block; margin: 0 5px; cursor: pointer; }
-    .dot.active { background: #fff; }
-    footer { background: #191919; color: #bbb; padding: 40px 20px; text-align: center; }
-    iframe { width: 100%; height: 300px; border: none; border-radius: 10px; margin-top: 30px; }
-    .form-section { background: #1a1a1a; padding: 30px; border-radius: 10px; margin-top: 50px; }
-    input, textarea { width: 100%; padding: 12px; background: #111; border: 1px solid #333; color: #eee; border-radius: 6px; margin-top: 10px; }
-    button { padding: 12px 25px; background: #333; border: none; color: #fff; border-radius: 6px; margin-top: 15px; cursor: pointer; }
+    body {
+      background-color: #111;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #000;
+      padding: 10px 20px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 14px;
+      color: #aaa;
+    }
+    section, .room, .promo {
+      padding: 20px;
+      text-align: center;
+      border-bottom: 1px solid #333;
+    }
+    h1, h2 {
+      color: #f5f5f5;
+    }
+    img {
+      width: 90%;
+      max-width: 400px;
+      border-radius: 10px;
+      margin: 10px 0;
+    }
+    .carousel {
+      position: relative;
+      width: 90%;
+      max-width: 400px;
+      margin: auto;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+    .carousel img {
+      width: 100%;
+      display: none;
+    }
+    .carousel img.active {
+      display: block;
+    }
+    .dots {
+      margin-top: 10px;
+    }
+    .dot {
+      height: 10px;
+      width: 10px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      margin: 0 3px;
+      cursor: pointer;
+    }
+    .dot.active {
+      background-color: #fff;
+    }
+    .price-table {
+      width: 90%;
+      margin: 20px auto;
+      border-collapse: collapse;
+      color: #ddd;
+    }
+    .price-table th, .price-table td {
+      border: 1px solid #555;
+      padding: 10px;
+    }
+    .contact, .footer {
+      background-color: #222;
+      padding: 20px;
+      text-align: center;
+    }
+    input, textarea {
+      width: 90%;
+      padding: 10px;
+      margin: 5px 0;
+      border-radius: 5px;
+      border: none;
+    }
+    button {
+      padding: 10px 20px;
+      border: none;
+      background: #555;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .ad {
+      margin: 20px 0;
+    }
   </style>
 </head>
 <body>
 
-<header>
-  <div class="designer-label">Design by Light Labs Studio</div>
-  <h1>BON Hotel Hyatti Warri</h1>
-</header>
+<header>Design by Light Labs Studio</header>
 
 <section>
-  <h2>Welcome to BON Hotel Hyatti Warri</h2>
-  <p>Experience premium hospitality in Delta State's most refined hotel. Located minutes from the Osubi Airport, our hotel offers professionally tailored comfort, modern amenities, and personalized service that sets us apart in Nigeria's hospitality landscape.</p>
-
+  <h1>Welcome to BON Hotel Hyatti Warri</h1>
+  <p>Where comfort meets prestige in the heart of Warri. Enjoy luxurious accommodation, exquisite service, and unforgettable experiences at Nigeria's finest hospitality destination.</p>
   <!-- Ad Unit 1 -->
-  <div style="max-width: 160px; margin: 20px auto;">
+  <div class="ad">
     <script type="text/javascript">
       atOptions = {
         'key' : '0d9eb96b97d696a3a9a97a6b09a7cd85',
@@ -54,127 +119,128 @@
     </script>
     <script type="text/javascript" src="//www.highperformanceformat.com/0d9eb96b97d696a3a9a97a6b09a7cd85/invoke.js"></script>
   </div>
-
-  <img src="img4.jpeg" alt="BON Hotel Exterior" />
+  <img src="img4.jpeg" alt="BON Hotel Main Entrance">
 </section>
 
 <section>
   <h2>Room Rates</h2>
-  <table>
-    <tr><th>Room Type</th><th>Standard Rate</th><th>Member Rate</th></tr>
-    <tr><td>Standard Room (Studio)</td><td>₦112,000</td><td>₦100,800</td></tr>
-    <tr><td>Classic Room</td><td>₦120,000</td><td>₦108,000</td></tr>
-    <tr><td>Deluxe Room</td><td>₦146,000</td><td>₦131,400</td></tr>
-    <tr><td>Royal Room</td><td>₦180,000</td><td>₦162,000</td></tr>
-    <tr><td>Executive Suite</td><td>₦260,000</td><td>₦234,000</td></tr>
-    <tr><td>Ambassadorial Suite</td><td>₦300,000</td><td>₦270,000</td></tr>
-    <tr><td>Self-Catering Suite</td><td>₦300,000</td><td>₦270,000</td></tr>
+  <table class="price-table">
+    <tr><th>Room Type</th><th>Price (₦)</th><th>BONami Price (₦)</th></tr>
+    <tr><td>Studio Room</td><td>112,000</td><td>100,800</td></tr>
+    <tr><td>Classic Room</td><td>120,000</td><td>108,000</td></tr>
+    <tr><td>Deluxe Room</td><td>146,000</td><td>131,400</td></tr>
+    <tr><td>Royal Room</td><td>180,000</td><td>162,000</td></tr>
+    <tr><td>Executive Suite</td><td>260,000</td><td>234,000</td></tr>
+    <tr><td>Ambassadorial Suite</td><td>300,000</td><td>270,000</td></tr>
+    <tr><td>Self-Catering Suite</td><td>300,000</td><td>270,000</td></tr>
   </table>
+  <p><strong>BONami Membership:</strong> Enjoy 10% off all bookings with a BONami card (₦20,000/year). Usable at any BON Hotel worldwide.</p>
 
-  <div class="highlight-box">
-    Become a BONAMI Member by purchasing a Bonami Card for ₦20,000. Membership is valid for one year and grants 10% discount on all rooms at any BON Hotel worldwide.
-  </div>
-
-  <!-- Ad Unit 2 -->
-  <div style="text-align:center; margin-top: 30px;">
+  <!-- Ad Unit 1 -->
+  <div class="ad">
     <script type="text/javascript">
       atOptions = {
-        'key' : '6cd6931c37fc427ed210ce5fd3ce7f00',
+        'key' : '0d9eb96b97d696a3a9a97a6b09a7cd85',
         'format' : 'iframe',
-        'height' : 60,
-        'width' : 468,
+        'height' : 300,
+        'width' : 160,
         'params' : {}
       };
     </script>
-    <script type="text/javascript" src="//www.highperformanceformat.com/6cd6931c37fc427ed210ce5fd3ce7f00/invoke.js"></script>
+    <script type="text/javascript" src="//www.highperformanceformat.com/0d9eb96b97d696a3a9a97a6b09a7cd85/invoke.js"></script>
   </div>
 </section>
 
-<section>
-  <h2>Our Rooms</h2>
+<!-- Room Sections -->
+<section class="room"><h2>Studio Room</h2><img src="studio.jpg"><p>Cozy, elegant and perfect for solo travelers. Comes with a Queen-sized bed and a complimentary breakfast.</p>
+<div class="ad">[AD UNIT 1]</div></section>
 
-  <h3>Standard Room (Studio)</h3>
-  <img src="studio.jpg" alt="Studio Room">
+<section class="room"><h2>Classic Room</h2><img src="classic.jpg"><p>Spacious King-sized bed with refined interior for your comfort and privacy.</p>
+<div class="ad">[AD UNIT 1]</div></section>
 
-  <!-- Ad Unit 3 -->
-  <div style="text-align:center; margin: 30px 0;">
-    <script async="async" data-cfasync="false" src="//pl27254388.profitableratecpm.com/ce1846697728c667ed35bf013f823ae7/invoke.js"></script>
-    <div id="container-ce1846697728c667ed35bf013f823ae7"></div>
-  </div>
+<section class="room"><h2>Deluxe Room</h2>
+<div class="carousel" id="deluxe-carousel">
+  <img src="deluxe.jpg" class="active">
+  <img src="deluxe1.jpg">
+  <div class="dots"><span class="dot active"></span><span class="dot"></span></div>
+</div>
+<p>Modern design meets classic luxury. Includes a King-sized bed and stylish sofa lounge area.</p>
+<div class="ad">[AD UNIT 1]</div></section>
 
-  <h3>Classic Room</h3>
-  <img src="classic.jpg" alt="Classic Room">
+<section class="room"><h2>Royal Room</h2><img src="royal.jpg"><p>Designed for luxury-seeking individuals with royal touches and comfort.</p>
+<div class="ad">[AD UNIT 1]</div></section>
 
-  <h3>Deluxe Room</h3>
-  <div class="carousel">
-    <img class="active" src="deluxe.jpg" alt="Deluxe View 1">
-    <img src="deluxe1.jpg" alt="Deluxe View 2">
-  </div>
+<section class="room"><h2>Executive Suite</h2>
+<div class="carousel" id="executive-carousel">
+  <img src="executive.jpg" class="active">
+  <img src="executive1.jpg">
+  <div class="dots"><span class="dot active"></span><span class="dot"></span></div>
+</div>
+<p>Luxury suite with space and executive furnishing. Ideal for business and comfort.</p>
+<div class="ad">[AD UNIT 1]</div></section>
 
-  <h3>Royal Room</h3>
-  <img src="royal.jpg" alt="Royal Room">
+<section class="room"><h2>Ambassadorial Suite</h2>
+<div class="carousel" id="ambassador-carousel">
+  <img src="ambassador.jpg" class="active">
+  <img src="ambassador1.jpg">
+  <div class="dots"><span class="dot active"></span><span class="dot"></span></div>
+</div>
+<p>Top-tier elegance. Enjoy royal class lodging with unmatched service and privacy.</p>
+<div class="ad">[AD UNIT 1]</div></section>
 
-  <h3>Executive Suite</h3>
-  <div class="carousel">
-    <img class="active" src="executive.jpg" alt="Executive 1">
-    <img src="executive1.jpg" alt="Executive 2">
-  </div>
+<section class="room"><h2>Self-Catering Suite</h2>
+<div class="carousel" id="self-carousel">
+  <img src="self.jpg" class="active">
+  <img src="self1.jpg">
+  <img src="self2.jpg">
+  <div class="dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span></div>
+</div>
+<p>Includes a personal kitchen — your comfort, your food, your schedule.</p>
+<div class="ad">[AD UNIT 1]</div></section>
 
-  <h3>Ambassadorial Suite</h3>
-  <div class="carousel">
-    <img class="active" src="ambassador.jpg" alt="Ambassador 1">
-    <img src="ambassador1.jpg" alt="Ambassador 2">
-  </div>
+<!-- Promotional Features -->
+<section class="promo"><h2>Indoor Bar</h2><img src="img1.jpeg"><p>A vibrant bar to relax and socialize with signature cocktails and music.</p></section>
+<section class="promo"><h2>Pool Area</h2><img src="img2.jpeg"><p>Serene poolside experience, great for relaxing and social events.</p></section>
+<section class="promo"><h2>Front Desk</h2><img src="img3.jpeg"><p>24/7 top-tier reception for smooth check-in, check-out, and all needs.</p></section>
+<section class="promo"><h2>Room Comfort</h2><img src="img.jpeg"><p>Spacious, air-conditioned, and luxuriously decorated for your peace of mind.</p></section>
 
-  <h3>Self-Catering Suite</h3>
-  <div class="carousel">
-    <img class="active" src="self.jpg" alt="Self 1">
-    <img src="self1.jpg" alt="Self 2">
-    <img src="self2.jpg" alt="Self 3">
-  </div>
-</section>
+<!-- Contact and Map -->
+<div class="contact">
+  <h2>Contact BON Hotel Hyatti Warri</h2>
+  <p><strong>Phone:</strong> +234 (0) 703 900 6667</p>
+  <p><strong>WhatsApp:</strong> +234 915 996 7494</p>
+  <p><strong>Email:</strong> reservations@bonhotelhyatti.com</p>
+  <p><strong>Address:</strong> 2 Omamor Street, Ekpan Warri, Delta, Nigeria</p>
+  <p><strong>Developer Contact:</strong> walkernight365@gmail.com, WhatsApp: 08035294562</p>
+</div>
 
-<section>
-  <h2>Why BON Hotel Stands Out</h2>
+<iframe src="https://maps.google.com/maps?q=2+Omamor+Street,+Ekpan+Warri,+Delta,+Nigeria&output=embed" width="100%" height="300" style="border:0;"></iframe>
 
-  <h3>Indoor Bar</h3>
-  <img src="img1.jpeg" alt="Bar">
-  <p>Our bar is more than a lounge — it's a social space crafted for sophistication and comfort, exclusive to guests.</p>
+<div class="footer">
+  <p><strong>Bank Details:</strong><br>
+    Account Name: Hyatt Pan Hotel Limited<br>
+    Bank: First Bank of Nigeria<br>
+    Account Number: 2035072113<br>
+    Sort Code: 011150000<br>
+    Branch: First Bank Nigeria Limited, Ekpan Branch, Main Complex, NPA Road, Ekpan
+  </p>
+</div>
 
-  <h3>Swimming Pool</h3>
-  <img src="img2.jpeg" alt="Pool">
-  <p>Take a refreshing dive in our crystal-clear pool. It's not just relaxation — it's therapy.</p>
-
-  <h3>Professional Front Desk</h3>
-  <img src="img3.jpeg" alt="Reception">
-  <p>Greeted by elegance and professionalism the moment you walk in — our staff is here for you 24/7.</p>
-
-  <h3>Room Comfort</h3>
-  <img src="img.jpeg" alt="Room Comfort">
-  <p>Our rooms offer a luxury experience designed around silence, privacy, and premium aesthetics.</p>
-</section>
-
-<section class="form-section">
-  <h2>Leave a Review</h2>
-  <form method="POST" action="save_review.php">
-    <input type="text" name="name" placeholder="Your Name" required>
-    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-    <button type="submit">Submit</button>
-  </form>
-</section>
-
-<section>
-  <h2>Find Us</h2>
-  <iframe src="https://www.google.com/maps?q=2%20Omamor%20Street%2C%20Ekpan%20Warri%2C%20Delta%2C%20Nigeria&output=embed"></iframe>
-</section>
-
-<footer>
-  <h3>Hotel Contact</h3>
-  <p>📞 +234 (0) 703 900 6667<br>📱 +234 915 996 7494<br>📧 reservations@bonhotelhyatti.com<br>📍 2 Omamor Street, Ekpan Warri, Delta, Nigeria</p>
-  <hr>
-  <h3>Web Developer Contact</h3>
-  <p>📧 walkernight365@gmail.com<br>📱 08035294562</p>
-</footer>
+<script>
+  // Basic carousel behavior
+  document.querySelectorAll(".carousel").forEach(carousel => {
+    const imgs = carousel.querySelectorAll("img");
+    const dots = carousel.querySelectorAll(".dot");
+    let i = 0;
+    setInterval(() => {
+      imgs[i].classList.remove("active");
+      dots[i].classList.remove("active");
+      i = (i + 1) % imgs.length;
+      imgs[i].classList.add("active");
+      dots[i].classList.add("active");
+    }, 3000);
+  });
+</script>
 
 </body>
-                                                                    </html>
+  </html>
