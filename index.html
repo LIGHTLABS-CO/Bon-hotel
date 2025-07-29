@@ -51,6 +51,36 @@
       width: 90px;
       text-align: left;
     }
+    table {
+      margin: 0 auto 20px;
+      border-collapse: collapse;
+      width: 90%;
+      max-width: 600px;
+      background-color: #222;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    th, td {
+      padding: 12px 15px;
+      text-align: center;
+      border-bottom: 1px solid #444;
+    }
+    th {
+      background-color: #333;
+      font-weight: bold;
+    }
+    .highlight-section {
+      background-color: #1b1b1b;
+      margin: 30px auto;
+      padding: 20px;
+      max-width: 480px;
+      border-radius: 12px;
+    }
+    .highlight-section img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
   </style>
 </head>
 <body>
@@ -60,16 +90,25 @@
   <img src="img4.jpeg" alt="Hotel Image" style="width:90%; max-width:400px; border-radius:10px; margin:20px auto;"/>
 
   <h2>Room Rates</h2>
-  <div style="background:#222; display:inline-block; padding:20px; border-radius:12px; text-align:left;">
-    <p>Studio Room: ₦112,000 (BONami ₦100,800)</p>
-    <p>Classic Room: ₦120,000 (BONami ₦108,000)</p>
-    <p>Deluxe Room: ₦146,000 (BONami ₦131,400)</p>
-    <p>Royal Room: ₦180,000 (BONami ₦162,000)</p>
-    <p>Executive Suite: ₦260,000 (BONami ₦234,000)</p>
-    <p>Ambassadorial Suite: ₦300,000 (BONami ₦270,000)</p>
-    <p>Self Catering Suite: ₦300,000 (BONami ₦270,000)</p>
-    <small><i>Note: BONami members get 10% off all room types. Purchase the BONami card for ₦20,000 (valid 1 year, usable at all BON Hotels worldwide).</i></small>
-  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Room Description</th>
+        <th>Room Type</th>
+        <th>Best Available Rate</th>
+        <th>BONami Rate (10% off)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Single Room</td><td>Studio Room</td><td>₦112,000</td><td>₦100,800</td></tr>
+      <tr><td>Single Room</td><td>Classic Room</td><td>₦120,000</td><td>₦108,000</td></tr>
+      <tr><td>Single Room</td><td>Deluxe Room</td><td>₦146,000</td><td>₦131,400</td></tr>
+      <tr><td>Single Room</td><td>Royal Room</td><td>₦180,000</td><td>₦162,000</td></tr>
+      <tr><td>Double Room</td><td>Executive Suite</td><td>₦260,000</td><td>₦234,000</td></tr>
+      <tr><td>Double Room</td><td>Ambassador Suite</td><td>₦300,000</td><td>₦270,000</td></tr>
+      <tr><td>Double Room</td><td>Self Catering Suite</td><td>₦300,000</td><td>₦270,000</td></tr>
+    </tbody>
+  </table>
 
   <h2>🏨 Single Rooms</h2>
 
@@ -142,7 +181,7 @@
     <p>Ideal for long-stay guests. Comes with a fully equipped kitchen and dining space.</p>
   </div>
 
-  <!-- ADSTERAA AD PLACEMENT -->
+  <!-- Ad Placement -->
   <div style="margin: 30px 0;">
     <script type="text/javascript">
       atOptions = {
@@ -154,6 +193,27 @@
       };
     </script>
     <script type="text/javascript" src="//www.highperformanceformat.com/6cd6931c37fc427ed210ce5fd3ce7f00/invoke.js"></script>
+  </div>
+
+  <!-- Hype Promo Sections -->
+  <div class="highlight-section">
+    <img src="img3.jpeg" alt="Front Desk"/>
+    <p>Experience premium service from arrival to checkout at our sophisticated front desk. Elegant, warm reception to welcome every guest.</p>
+  </div>
+
+  <div class="highlight-section">
+    <img src="img1.jpeg" alt="Indoor Bar"/>
+    <p>Relax at our exclusive indoor bar with a wide selection of cocktails and spirits. Perfect for socializing or unwinding privately.</p>
+  </div>
+
+  <div class="highlight-section">
+    <img src="img2.jpeg" alt="Pool"/>
+    <p>Our serene pool area offers tranquility and freshness. Ideal for morning swims or peaceful sunbathing in a luxurious setting.</p>
+  </div>
+
+  <div class="highlight-section">
+    <img src="img.jpeg" alt="Comfortable Room"/>
+    <p>Every room is built for ultimate comfort with luxurious bedding and stylish décor. Rest and recharge in total relaxation.</p>
   </div>
 
   <div class="contact-info">
@@ -177,4 +237,4 @@
     });
   </script>
 </body>
-                                    </html>
+                                                                                       </html>
